@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<odoo>
+        <record id="view_grade_form_insurance" model="ir.ui.view">
+            <field name="name">grade.category.form</field>
+            <field name="model">grade.category</field>
+            <field name="inherit_id" ref="oi_hr_salary_schedule.view_category_grade_form" />
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                                              <label for="medical_insurance_id"/>
+
+                     <div class="o_row">
+                         <field name="medical_insurance_id" options="{'no_create': True,'no_open': True, 'no_create_edit': True}"/>
+                        <button string="Update" class="btn btn-link" type="object" name="update_medical" invisible="not medical_insurance_id"/>
+                    </div>
+
+
+                </field>
+            </field>
+        </record>
+     <record id="view_category_grade_tree" model="ir.ui.view">
+        <field name="name">grade.category</field>
+        <field name="model">grade.category</field>
+        <field name="inherit_id" ref="oi_hr_salary_schedule.view_category_grade_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='name']" position="after">
+                				<field name="medical_insurance_id"/>
+
+            </xpath>
+
+        </field>
+    </record>
+
+
+
+
+            <record id="view_grade_form_insurancee" model="ir.ui.view">
+            <field name="name">hr.salary.grade.form</field>
+            <field name="model">hr.salary.grade</field>
+            <field name="inherit_id" ref="oi_hr_salary_schedule.view_hr_salary_grade_form" />
+            <field name="arch" type="xml">
+                <field name="category_id" position="after">
+                    <field name="medical_insurance_id" options="{'no_create': True,'no_open': True, 'no_create_edit': True}"/>
+                </field>
+            </field>
+        </record>
+    <record id="view_hr_salary_grade_tree" model="ir.ui.view">
+        <field name="name">hr.salary.grade</field>
+        <field name="model">hr.salary.grade</field>
+        <field name="inherit_id" ref="oi_hr_salary_schedule.view_hr_salary_grade_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='start_salary']" position="after">
+                				<field name="medical_insurance_id"/>
+
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

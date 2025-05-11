@@ -1,0 +1,54 @@
+<odoo>
+
+    <!--    insurance categories form-->
+    <record id="view_insurance_categ_form" model="ir.ui.view">
+        <field name="name">view.insurance.categ.form</field>
+        <field name="model">insurance.categ</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    insurance categories tree -->
+    <record id="view_insurance_categ_tree" model="ir.ui.view">
+        <field name="name">view.insurance.categ.tree</field>
+        <field name="model">insurance.categ</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    insurance categories action -->
+    <record id="action_insurance_categ_view" model="ir.actions.act_window">
+        <field name="name">Insurance Categories</field>
+        <field name="res_model">insurance.categ</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create first insurance categories
+            </p>
+        </field>
+    </record>
+
+    <!--    insurance categories menu-->
+    <menuitem
+            id="menu_insurance_categ_menu_root"
+            name="Health Insurance"
+            parent="hr.menu_hr_root"
+            groups="base.group_user"/>
+
+    <menuitem id="menu_insurance_categ_view"
+              parent="jes_hr_insurance.menu_insurance_categ"
+              name="Insurance Categories"
+              action="action_insurance_categ_view"
+              sequence="0"/>
+
+</odoo>

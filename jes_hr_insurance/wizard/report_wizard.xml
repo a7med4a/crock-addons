@@ -1,0 +1,45 @@
+<odoo>
+    <record id="report_wizard_form" model="ir.ui.view">
+        <field name="name">report insurance</field>
+        <field name="model">insurance.wizard</field>
+        <field name="arch" type="xml">
+            <form string="wizard_insurance_form">
+                <sheet>
+                    <group string="Filtering Options">
+                        <field name="filter_button" widget="radio"
+                               />
+                    </group>
+                     <group string="Insurance Analysis"  invisible="filter_button not in ('department')">
+
+                        <field name="department_ids" />
+                    </group>
+
+                    <group invisible="filter_button not in ('employee')">
+                        <group>
+                            <field name="all_company" widget="boolean_toggle" />
+                            <field name="employee" invisible="all_company == True"/>
+
+                        </group>
+                        <group>
+                            <field name="insurance_policy" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Print" name="do_print" type="object" class="oe_highlight" />
+                        <button string="Cancel" class="btn btn-secondary" special="cancel" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="wizard_insurance_action" model="ir.actions.act_window">
+        <field name="name">Reports</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">insurance.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_insurance_report" name="Reports"
+        parent="jes_hr_insurance.menu_insurance_categ_menu_root" sequence="100" action="wizard_insurance_action" />
+
+</odoo>

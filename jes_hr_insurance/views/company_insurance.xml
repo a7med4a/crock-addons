@@ -1,0 +1,49 @@
+<odoo>
+
+    <!--    insurance companies view form-->
+    <record id="view_insurance_companies_form" model="ir.ui.view">
+        <field name="name">view.insurance_companies.form</field>
+        <field name="model">insurance.companies</field>
+        <field name="arch" type="xml">
+            <form string="Insurance Companies">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    insurance companies view tree-->
+    <record id="view_insurance_companies_tree" model="ir.ui.view">
+        <field name="name">view.insurance.companies.tree</field>
+        <field name="model">insurance.companies</field>
+        <field name="arch" type="xml">
+            <tree string="Insurance Companies">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    insurance companies action-->
+    <record id="insurance_companies_action" model="ir.actions.act_window">
+        <field name="name">Insurance Companies</field>
+        <field name="res_model">insurance.companies</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create first Insurance Company !
+            </p>
+        </field>
+    </record>
+
+    <!--    insurance companies menu-->
+    <menuitem id="insurance_companies_menu"
+              name="Insurance Companies"
+              parent="jes_hr_insurance.menu_insurance_categ"
+              action="insurance_companies_action"
+              sequence="0"/>
+
+</odoo>
+

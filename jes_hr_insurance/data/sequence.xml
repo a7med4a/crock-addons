@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<odoo noupdate="1">
+    <record id="seq_add" model="ir.sequence">
+        <field name="name">add code</field>
+        <field name="code">add.number</field>
+        <field name="prefix">AN</field>
+        <field name="padding">5</field>
+    </record>
+    <record id="seq_promote" model="ir.sequence">
+        <field name="name">promote code</field>
+        <field name="code">promote.number</field>
+        <field name="prefix">PC</field>
+        <field name="padding">5</field>
+    </record>
+</odoo>

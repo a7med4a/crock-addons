@@ -1,0 +1,4 @@
+<odoo>
+    <menuitem id="menu_insurance_categ" name="Insurance" parent="hr.menu_human_resources_configuration" sequence="6" />
+
+</odoo>

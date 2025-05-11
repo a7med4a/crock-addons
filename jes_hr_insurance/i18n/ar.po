@@ -1,0 +1,1027 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* jes_hr_insurance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-09 12:25+0000\n"
+"PO-Revision-Date: 2024-09-09 12:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_view
+msgid "<b><span>Category Total: </span></b>"
+msgstr "<b><span>إجمالي الفئة: </span></b>"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_view
+msgid "<b><span>Total: </span></b>"
+msgstr "<b><span>المجموع: </span></b>"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__message_needaction
+msgid "Action Needed"
+msgstr "الإجراء مطلوب"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_policy__state__active
+msgid "Active"
+msgstr "ساريه"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__activity_ids
+msgid "Activities"
+msgstr "الانشظه"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "ترتيب استثناء النشاط"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__activity_state
+msgid "Activity State"
+msgstr "حاله النشاط"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_add_delete__request_type__add
+msgid "Add"
+msgstr "إضافه"
+
+
+#. module: jes_hr_insurance
+#: model_terms:ir.actions.act_window,help:jes_hr_insurance.action_insurance_add_delete_view
+msgid "Add or Delete Insurance !"
+msgstr "إضافة أو حذف التأمين!"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__insurance_add_id
+msgid "Add or Delete insurance"
+msgstr "إضافة أو حذف التأمين"
+
+#. module: jes_hr_insurance
+#: model:ir.model,name:jes_hr_insurance.model_insurance_add_delete
+msgid "Add or Delete insurance from employee"
+msgstr "إضافة أو حذف التأمين من الموظف"
+
+#. module: jes_hr_insurance
+#: model:ir.ui.menu,name:jes_hr_insurance.menu_insurance_add_delete_view
+msgid "Add/Delete Insurance"
+msgstr "إضافة او حذف تامين طبي"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_add_delete__state__done
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_promote__state__done
+msgid "Added"
+msgstr "تمت الإضافة"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__addition_date
+msgid "Addition Date"
+msgstr "تاريخ الاضافه"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.hr_self_service_dependent_view_form
+msgid "Approve"
+msgstr "موافق"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_request__state__validate
+msgid "Approved"
+msgstr "تم الاعتماد"
+
+
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__attachment
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__attachment
+msgid "Attachment"
+msgstr "المرفق"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: jes_hr_insurance
+#: model:ir.actions.server,name:jes_hr_insurance.ir_cron_promotion_ir_actions_server
+#: model:ir.cron,cron_name:jes_hr_insurance.ir_cron_promotion
+msgid "Automatic Promotion"
+msgstr "الترقية التلقائية"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_wizard__filter_button__department
+msgid "By Department"
+msgstr "الادارة"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_wizard__filter_button__employee
+msgid "By Employee"
+msgstr "الموظف"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_policy__state__cancel
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_wizard_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_add_delete_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_policy_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_promote_form
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_add_delete__state__cancel
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_promote__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_view
+msgid "Category"
+msgstr "اسم الفئه"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,help:jes_hr_insurance.field_insurance_wizard__all_company
+msgid ""
+"Check this box if you wish to have report for the entire company employees."
+msgstr ""
+"قم بتحديد هذا المربع إذا كنت ترغب في الحصول على تقرير لجميع موظفي الشركة."
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard__all_company
+msgid "Company"
+msgstr "الشركة"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_companies__name
+msgid "Company Name"
+msgstr "اسم شركة التأمين"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.hr_self_service_dependent_view_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_add_delete_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_policy_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_promote_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.actions.act_window,help:jes_hr_insurance.insurance_companies_action
+msgid "Create first Insurance Company !"
+msgstr "إنشاء أول شركة تأمين!"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.actions.act_window,help:jes_hr_insurance.action_insurance_pricing_view
+msgid "Create first Insurance Pricing"
+msgstr "إنشاء أول تسعير للتأمين"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.actions.act_window,help:jes_hr_insurance.action_insurance_categ_view
+msgid "Create first insurance categories"
+msgstr "إنشاء فئات التأمين الأولى"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.actions.act_window,help:jes_hr_insurance.action_dependent_view
+msgid "Create new dependent !"
+msgstr "إنشاء تابع جديد!"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.actions.act_window,help:jes_hr_insurance.action_insurance_policy_view
+msgid "Create your first insurance Policy"
+msgstr "قم بإنشاء أول وثيقة تأمين خاصة بك"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__create_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__create_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__create_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__create_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_categ__create_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_companies__create_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy__create_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__create_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__create_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard__create_uid
+msgid "Created by"
+msgstr "تم إنشاؤه بواسطة"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__create_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__create_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__create_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__create_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_categ__create_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_companies__create_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy__create_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__create_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__create_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard__create_date
+msgid "Created on"
+msgstr "تم إنشاؤه في"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__current_categ
+msgid "Current Category"
+msgstr "فئة التأمين الحاليه"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__date_of_birth
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__date_of_birth
+msgid "Date of Birth"
+msgstr "تاريخ الميلاد"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent__relative_relation__daughter
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_user__relative_relation__daughter
+msgid "Daughter"
+msgstr "الابنه"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_add_delete__request_type__delete
+msgid "Delete"
+msgstr "حذف"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__department_emp_ids
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard__department_ids
+msgid "Department"
+msgstr "الادارة"
+
+
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_hr_employee__dependent_insurance_cost
+msgid "Dependent Cost"
+msgstr "التكلفة التابعة"
+
+#. module: jes_hr_insurance
+#: model:ir.model,name:jes_hr_insurance.model_dependent
+#: model:ir.model,name:jes_hr_insurance.model_dependent_user
+msgid "Dependent Data"
+msgstr "بيانات المعالين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__line_ids
+msgid "Dependent Lines"
+msgstr "المعالين"
+
+#. module: jes_hr_insurance
+#: model:ir.model,name:jes_hr_insurance.model_dependent_request
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__dependent_request
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.hr_self_service_dependent_view_form
+msgid "Dependent Request"
+msgstr "طلب إضافة معال"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.hr_dependent_request_view_tree
+msgid "Dependent Requests"
+msgstr "طلبات إضافة معال"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_hr_employee__family_ids
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__family_ids
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_employee_insurance_dashboard_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_inherit_employee_dependent_form
+msgid "Dependents"
+msgstr "المعالين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__display_name
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__display_name
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__display_name
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__display_name
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_categ__display_name
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_companies__display_name
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy__display_name
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__display_name
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__display_name
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_policy__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: jes_hr_insurance
+#: model:ir.model,name:jes_hr_insurance.model_hr_employee
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__employee_id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__emp_id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__emp_id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard__employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_hr_employee__employee_insurance_cost
+msgid "Employee Cost"
+msgstr "تكلفة الموظف"
+
+#. module: jes_hr_insurance
+#: model:ir.actions.act_window,name:jes_hr_insurance.hr_employee_insurance_action
+#: model:ir.ui.menu,name:jes_hr_insurance.menu_employee_insurance_cost_view
+msgid "Employee Insurance Cost"
+msgstr "تكلفة تأمين الموظفين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__english_name
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__english_name
+msgid "English Name"
+msgstr "الاسم بالانجليزية"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent__relative_relation__father
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_user__relative_relation__father
+msgid "Father"
+msgstr "الاب"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__father_cost
+msgid "Father Cost"
+msgstr "تكلفة الاب"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent__gender__female
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_user__gender__female
+msgid "Female"
+msgstr "أنثى"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__female_categ_cost
+msgid "Female Category Cost"
+msgstr "تكلفة الانثى"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__female_cost
+msgid "Female Cost"
+msgstr "تكلفة الابنه"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_wizard_form
+msgid "Filtering Options"
+msgstr "الاختيار بناءأ"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__message_follower_ids
+msgid "Followers"
+msgstr "المتابعين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,help:jes_hr_insurance.field_dependent_request__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "أيقونة الخط رائعة مثل fa-tasks"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__gender
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__gender
+msgid "Gender"
+msgstr "الجنس"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__has_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_hr_employee__has_insurance
+msgid "Has Insurance"
+msgstr "لديه تأمين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__has_message
+msgid "Has Message"
+msgstr "لديه رسالة"
+
+#. module: jes_hr_insurance
+#: model:ir.ui.menu,name:jes_hr_insurance.menu_insurance_categ_menu_root
+msgid "Health Insurance"
+msgstr "التامين الطبي"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_request__state__hr_confirm
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.hr_self_service_dependent_view_form
+msgid "Hr Manager Approve"
+msgstr "موافقة مدير الموارد البشريه"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent__relative_relation__husband
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_user__relative_relation__husband
+msgid "Husband"
+msgstr "الزوج"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_categ__id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_companies__id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy__id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__id_number
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__id_number
+msgid "ID Number"
+msgstr "رقم الهويه"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__activity_exception_icon
+msgid "Icon"
+msgstr "رمز"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,help:jes_hr_insurance.field_dependent_request__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "أيقونة للإشارة إلى نشاط استثناء."
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,help:jes_hr_insurance.field_dependent_request__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديد هذا المربع، فإن الرسائل الجديدة تتطلب انتباهك."
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,help:jes_hr_insurance.field_dependent_request__message_has_error
+#: model:ir.model.fields,help:jes_hr_insurance.field_dependent_request__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديد هذا المربع، فقد يكون لبعض الرسائل خطأ في التسليم."
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_pricing_tree
+msgid "Insurance"
+msgstr "التأمين الطبى"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_add_delete_tree
+msgid "Insurance Add Delete"
+msgstr "اضافة او حذف التامين"
+
+#. module: jes_hr_insurance
+#: model:ir.actions.act_window,name:jes_hr_insurance.action_insurance_add_delete_view
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_add_delete_form
+msgid "Insurance Add or Delete"
+msgstr "إضافة او حذف تامين طبي"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_wizard_form
+msgid "Insurance Analysis"
+msgstr "تحليل التامين"
+
+#. module: jes_hr_insurance
+#: model:ir.actions.act_window,name:jes_hr_insurance.action_insurance_categ_view
+#: model:ir.model,name:jes_hr_insurance.model_insurance_categ
+#: model:ir.ui.menu,name:jes_hr_insurance.menu_insurance_categ_view
+msgid "Insurance Categories"
+msgstr "فئات التامين الطبى"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__insurance_categ_id
+msgid "Insurance Category"
+msgstr "فئة التأمين"
+
+#. module: jes_hr_insurance
+#: model:ir.actions.act_window,name:jes_hr_insurance.insurance_companies_action
+#: model:ir.ui.menu,name:jes_hr_insurance.insurance_companies_menu
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_companies_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_companies_tree
+msgid "Insurance Companies"
+msgstr "شركات التامين"
+
+#. module: jes_hr_insurance
+#: model:ir.model,name:jes_hr_insurance.model_insurance_companies
+msgid "Insurance Companies Model"
+msgstr "نموذج شركات التأمين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__company_id
+msgid "Insurance Company"
+msgstr "اسم شركة التأمين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__insurance_cost
+msgid "Insurance Cost"
+msgstr "تكلفة التأمين"
+
+#. module: jes_hr_insurance
+#: model:ir.actions.report,name:jes_hr_insurance.action_report_company_insurances_pdf
+#: model:ir.actions.report,name:jes_hr_insurance.action_report_insurance_pdf
+msgid "Insurance PDF"
+msgstr "التأمين PDF"
+
+#. module: jes_hr_insurance
+#: model:ir.actions.act_window,name:jes_hr_insurance.action_insurance_policy_view
+#: model:ir.model,name:jes_hr_insurance.model_insurance_policy
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__insurance_policy
+#: model:ir.ui.menu,name:jes_hr_insurance.menu_insurance_policy_view
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_inherit_employee_policy_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_policy_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_policy_tree
+msgid "Insurance Policy"
+msgstr "وثيقة التامين"
+
+#. module: jes_hr_insurance
+#: model:ir.actions.act_window,name:jes_hr_insurance.action_insurance_pricing_view
+#: model:ir.model,name:jes_hr_insurance.model_insurance_pricing
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy__insurance_pricing_ids
+#: model:ir.ui.menu,name:jes_hr_insurance.menu_insurance_pricing_view
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_pricing_form
+msgid "Insurance Pricing"
+msgstr "تسعير التأمين"
+
+#. module: jes_hr_insurance
+#: model:ir.actions.act_window,name:jes_hr_insurance.action_insurance_promote_view
+msgid "Insurance Promote"
+msgstr "ترقية التامين الطبى"
+
+#. module: jes_hr_insurance
+#: model:ir.model,name:jes_hr_insurance.model_insurance_promote
+#: model:ir.ui.menu,name:jes_hr_insurance.menu_insurance_promote
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_promote_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_promote_tree
+msgid "Insurance Promotion"
+msgstr "ترقية التامين الطبى"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__message_is_follower
+msgid "Is Follower"
+msgstr "هل هو تابع"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__last_add_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_hr_employee__last_add_insurance
+msgid "Last Add Insurance Date"
+msgstr "تاريخ اخر اضافه للتامين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__last_delete_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_hr_employee__last_delete_insurance
+msgid "Last Delete Insurance Date"
+msgstr "تاريخ اخر حذف للتامين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_hr_employee__last_medical_insurance_id
+msgid "Last Medical Insurance"
+msgstr "اخر تامين طبي"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent____last_update
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request____last_update
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user____last_update
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete____last_update
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_categ____last_update
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_companies____last_update
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy____last_update
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing____last_update
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote____last_update
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__write_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__write_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__write_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__write_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_categ__write_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_companies__write_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy__write_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__write_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__write_uid
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__write_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__write_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__write_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__write_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_categ__write_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_companies__write_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy__write_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__write_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__write_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "الملحق الرئيسي"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.actions.act_window,help:jes_hr_insurance.action_insurance_promote_view
+msgid "Make new Promotion !"
+msgstr "إجراء ترقية جديدة!"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent__gender__male
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_user__gender__male
+msgid "Male"
+msgstr "ذكر"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__male_categ_cost
+msgid "Male Category Cost"
+msgstr "تكلفة الذكر"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__male_cost
+msgid "Male Cost"
+msgstr "تكلفة الابن"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__medical_insurance_id
+msgid "Medical Category"
+msgstr "فئة التامين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_hr_grade__medical_insurance_id
+msgid "Medical Insurance Category"
+msgstr "فئة التامين الطبى"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__message_ids
+msgid "Messages"
+msgstr "رسائل"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent__relative_relation__mother
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_user__relative_relation__mother
+msgid "Mother"
+msgstr "الام"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_pricing__mother_cost
+msgid "Mother Cost"
+msgstr "تكلفة الام"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "الموعد النهائي لنشاطي"
+
+#. module: jes_hr_insurance
+#: model:ir.actions.act_window,name:jes_hr_insurance.hr_self_service_dependent_action_my
+msgid "My Dependent Requests"
+msgstr "طلباتي إضافه معال"
+
+#. module: jes_hr_insurance
+#. odoo-python
+#: code:addons/jes_hr_insurance/models/add_delete_insurance.py:0
+#: code:addons/jes_hr_insurance/models/add_delete_insurance.py:0
+#, python-format
+msgid "NO Insurance for this Employee"
+msgstr "لا يوجد تأمين لهذا الموظف"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_categ__name
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_company_view
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_view
+msgid "Name"
+msgstr "الاسم"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__new_categ
+msgid "New Category"
+msgstr "فئة التامين الجديدة"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "تقويم النشاط القادم"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط القادم"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط القادم"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: jes_hr_insurance
+#. odoo-python
+#: code:addons/jes_hr_insurance/models/promote_insurance.py:0
+#: code:addons/jes_hr_insurance/models/promote_insurance.py:0
+#: code:addons/jes_hr_insurance/models/promote_insurance.py:0
+#: code:addons/jes_hr_insurance/models/promote_insurance.py:0
+#, python-format
+msgid "No Insurances for this employee!"
+msgstr "لا يوجد تأمين لهذا الموظف!"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,help:jes_hr_insurance.field_dependent_request__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب اتخاذ إجراء"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,help:jes_hr_insurance.field_dependent_request__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__phone_number
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__phone_number
+msgid "Phone Number"
+msgstr "رقم الجوال"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy__policy_end_date
+msgid "Policy End Date"
+msgstr "تاريخ نهاية الوثيقه"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard__insurance_policy
+msgid "Policy NO"
+msgstr "رقم الوثيقة"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_hr_employee__policy_id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy__policy_number
+msgid "Policy Number"
+msgstr "رقم وثيقة التأمين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy__policy_start_date
+msgid "Policy Start Date"
+msgstr "تاريخ بداية الوثيقه"
+
+
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_wizard_form
+msgid "Print"
+msgstr "طباعة"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__promotion_date
+msgid "Promotion Date"
+msgstr "تاريخ الترقيه"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.hr_self_service_dependent_view_form
+msgid "Refuse"
+msgstr "رفض"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_request__state__refuse
+msgid "Refused"
+msgstr "تم الرفض"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__related_user_id
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__related_user_id
+msgid "Related User"
+msgstr "المستخدم ذو الصلة"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent__relative_relation
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_user__relative_relation
+msgid "Relative Relation"
+msgstr "صلة القرابه"
+
+#. module: jes_hr_insurance
+#: model:ir.actions.act_window,name:jes_hr_insurance.wizard_insurance_action
+#: model:ir.ui.menu,name:jes_hr_insurance.menu_insurance_report
+msgid "Reports"
+msgstr "تقارير"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_add_delete_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_promote_form
+msgid "Request"
+msgstr "طلب"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__request_date
+msgid "Request Date"
+msgstr "تاريخ الطلب"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__code
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__code
+msgid "Request No"
+msgstr "رقم الطلب"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__request_type
+msgid "Request Type"
+msgstr "نوع الطلب"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_add_delete__state__open
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_promote__state__open
+msgid "Requested"
+msgstr "تم الطلب"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__activity_user_id
+msgid "Responsible User"
+msgstr "المسئول"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__sending_date
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__sending_date
+msgid "Sending Date"
+msgstr "تاريخ الطلب"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_promote__state__sent
+msgid "Sent"
+msgstr "تم الارسال"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__sequence_
+msgid "Sequence"
+msgstr "تسلسل"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_add_delete_form
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.view_insurance_promote_form
+msgid "Set To Draft"
+msgstr "نحول ل مسوده"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent__relative_relation__son
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_user__relative_relation__son
+msgid "Son"
+msgstr "الابن"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_policy__state
+msgid "State"
+msgstr "الحاله"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__state
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_add_delete__state
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_promote__state
+msgid "Status"
+msgstr "الحاله"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,help:jes_hr_insurance.field_dependent_request__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة بناءً على الأنشطة\n"
+"متأخر: تاريخ الاستحقاق قد انقضى بالفعل\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"المخطط له: الأنشطة المستقبلية."
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_request__state__confirm
+msgid "To Approve"
+msgstr "للموافقه"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_request__state__draft
+msgid "To Submit"
+msgstr "للتاكيد"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_hr_employee__insurance_cost
+msgid "Total Insurance Cost"
+msgstr "إجمالي تكلفة التأمين"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__transaction_date
+msgid "Transaction Date"
+msgstr "تاريخ الانشاء"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_insurance_wizard__filter_button
+msgid "Type"
+msgstr "النوع"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,help:jes_hr_insurance.field_dependent_request__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي المسجل."
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_add_delete__state__draft
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__insurance_promote__state__draft
+msgid "Unsent"
+msgstr "لم يتم الارسال"
+
+#. module: jes_hr_insurance
+#: model:ir.model,name:jes_hr_insurance.model_res_users
+msgid "User"
+msgstr "المستخدم"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,field_description:jes_hr_insurance.field_dependent_request__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields,help:jes_hr_insurance.field_dependent_request__website_message_ids
+msgid "Website communication history"
+msgstr "سجل اتصالات الموقع"
+
+#. module: jes_hr_insurance
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent__relative_relation__wife
+#: model:ir.model.fields.selection,name:jes_hr_insurance.selection__dependent_user__relative_relation__wife
+msgid "Wife"
+msgstr "الزوجه"
+
+#. module: jes_hr_insurance
+#. odoo-python
+#: code:addons/jes_hr_insurance/models/hr_dependent_request.py:0
+#, python-format
+msgid "You Can not Delete Confirmed Request"
+msgstr "لا يمكنك حذف الطلب المؤكد"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_company_view
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_view
+msgid "cost"
+msgstr "التكلفة"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_company_view
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_view
+msgid "from"
+msgstr "من"
+
+#. module: jes_hr_insurance
+#: model:ir.model,name:jes_hr_insurance.model_hr_grade
+msgid "hr grade"
+msgstr "الدرجه الوظيفيه"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_company_view
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_view
+msgid "insurance"
+msgstr "التامين"
+
+#. module: jes_hr_insurance
+#: model:ir.model,name:jes_hr_insurance.model_insurance_wizard
+msgid "insurance.wizard"
+msgstr "تأمين.معالج"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_company_view
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_insurance_view
+msgid "to"
+msgstr "الي"
+
+#. module: jes_hr_insurance
+#: model_terms:ir.ui.view,arch_db:jes_hr_insurance.report_wizard_form
+msgid "wizard_insurance_form"
+msgstr "نموذج_تأمين_المعالج"
+
+#. module: jes_hr_insurance
+#. odoo-python
+#: code:addons/jes_hr_insurance/models/dependent.py:0
+#, python-format
+msgid "you cannot delete with 'approved' status ! "
+msgstr "لا يمكنك الحذف مع حالة \"الموافقة\"!"

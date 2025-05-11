@@ -1,0 +1,62 @@
+<odoo>
+
+    <!--    insurance pricing form-->
+    <record id="view_insurance_pricing_form" model="ir.ui.view">
+        <field name="name">view.insurance.pricing.form</field>
+        <field name="model">insurance.pricing</field>
+        <field name="arch" type="xml">
+            <form string="Insurance Pricing">
+                <sheet>
+                    <group col="4">
+                        <field name="company_id" class="mb-4"/>
+                        <field name="insurance_categ_id" class="mb-4"/>
+                        <field name="male_categ_cost" class="mb-4"/>
+                        <field name="female_categ_cost" class="mb-4"/>
+                        <field name="male_cost" class="mb-4"/>
+                        <field name="female_cost" class="mb-4"/>
+                        <field name="father_cost" class="mb-4"/>
+                        <field name="mother_cost" class="mb-4"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    insurance pricing tree-->
+    <record id="view_insurance_pricing_tree" model="ir.ui.view">
+        <field name="name">view.insurance.pricing.tree</field>
+        <field name="model">insurance.pricing</field>
+        <field name="arch" type="xml">
+            <tree string="Insurance">
+                <field name="company_id"/>
+                <field name="insurance_categ_id"/>
+                <field name="male_categ_cost"/>
+                <field name="female_categ_cost"/>
+                <field name="male_cost"/>
+                <field name="female_cost"/>
+                <field name="father_cost"/>
+                <field name="mother_cost"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    insurance pricing action-->
+    <record id="action_insurance_pricing_view" model="ir.actions.act_window">
+        <field name="name">Insurance Pricing</field>
+        <field name="res_model">insurance.pricing</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create first Insurance Pricing
+            </p>
+        </field>
+    </record>
+
+    <!--    insurance pricing menu-->
+    <menuitem id="menu_insurance_pricing_view"
+              name="Insurance Pricing"
+              parent="jes_hr_insurance.menu_insurance_categ_menu_root"
+              action="action_insurance_pricing_view"
+              sequence="0"/>
+
+</odoo>

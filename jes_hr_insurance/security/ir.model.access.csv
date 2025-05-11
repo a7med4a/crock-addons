@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_insurance_companies,access.insurance.companies,model_insurance_companies,hr.group_hr_user,1,1,1,1
+access_insurance_categ,access.insurance.categ,model_insurance_categ,hr.group_hr_user,1,1,1,1
+access_insurance_pricing,access.insurance.pricing,model_insurance_pricing,hr.group_hr_user,1,1,1,1
+access_insurance_policy,access.insurance.policy,model_insurance_policy,hr.group_hr_user,1,1,1,1
+access_insurance_add_delete,access.insurance.add.delete,model_insurance_add_delete,hr.group_hr_user,1,1,1,0
+access_insurance_promote,access.insurance.promote,model_insurance_promote,hr.group_hr_user,1,1,1,0
+access_insurance_wizard,access.insurance.wizard,model_insurance_wizard,hr.group_hr_user,1,1,1,1
+
+

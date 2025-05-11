@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="report_insurance_view">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1> insurance</h1>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>from</th>
+                            <th>to</th>
+                            <th>cost</th>
+                        </tr>
+                        <t t-foreach="stages" t-as="stage">
+                            <t t-foreach="stage['insurances']" t-as="insurance">
+                                <tr>
+                                    <td><b><span t-esc="insurance['name']"></span></b></td>
+                                    <td><span t-esc="stage['category']"></span></td>
+                                    <td><span t-esc="insurance['start_date']"></span></td>
+                                    <td><span t-esc="insurance['end_date']"></span></td>
+                                    <td><span t-esc="insurance['cost']"></span></td>
+                                </tr>
+                            </t>
+                            <t t-foreach="stage['dependants']" t-as="insurance">
+                                <tr>
+                                    <td><span t-esc="insurance['name']"></span>(<span t-esc="insurance['relation']"></span>)</td>
+                                    <td><span t-esc="stage['category']"></span></td>
+                                    <td><span t-esc="insurance['start_date']"></span></td>
+                                    <td><span t-esc="insurance['end_date']"></span></td>
+                                    <td><span t-esc="insurance['cost']"></span></td>
+                                </tr>
+                            </t>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><b><span>Category Total: </span></b></td>
+                            <td><span t-esc="stage['category_cost']"></span></td>
+                        </tr>
+                        </t>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><b><span>Total: </span></b></td>
+                            <td><span t-esc="total"></span></td>
+                        </tr>
+                    </table>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_report_insurance_pdf" model="ir.actions.report">
+            <field name="name">Insurance PDF</field>
+            <field name="model">insurance.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">jes_hr_insurance.report_insurance_view</field>
+            <field name="report_file">jes_hr_insurance.report_insurance_view</field>
+        </record>
+    </data>
+</odoo>

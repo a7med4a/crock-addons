@@ -1,0 +1,87 @@
+<odoo>
+<data>
+    <!-- Inherit Employee Form View to Modify it -->
+    <record id="view_employee_policy_form" model="ir.ui.view">
+        <field name="name">view.inherit.employee.policy.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Insurance Policy">
+                    <group col="10">
+                        <field name="policy_id"/>
+                        <field name="policy_number"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="hr_employee_insurance_form" model="ir.ui.view">
+        <field name="name">view.hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="priority">999999</field>
+        <field name="arch" type="xml">
+            <form create="0" delete="0" edit="0" duplicate="0">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="department_id" readonly="1"/>
+                        <field name="job_id" readonly="1"/>
+                        <field name="grade_id" readonly="1"/>
+                        <field name="policy_id" readonly="1"/>
+                        <field name="last_medical_insurance_id" readonly="1"/>
+                        <field name="employee_insurance_cost" readonly="1"/>
+                        <field name="dependent_insurance_cost" readonly="1"/>
+                        <field name="insurance_cost" readonly="1"/>
+                        <field name="family_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="hr_employee_insurance_tree" model="ir.ui.view">
+        <field name="name">view.hr.employee.tree</field>
+        <field name="model">hr.employee</field>
+        <field name="priority">999999</field>
+        <field name="arch" type="xml">
+            <tree create="0" delete="0" edit="0" duplicate="0">
+                <field name="name" readonly="1"/>
+                <field name="department_id" readonly="1"/>
+                <field name="job_id" readonly="1"/>
+                <field name="grade_id" readonly="1"/>
+                <field name="policy_id" readonly="1"/>
+                <field name="last_medical_insurance_id" readonly="1"/>
+                <field name="employee_insurance_cost" readonly="1"/>
+                <field name="dependent_insurance_cost" readonly="1"/>
+                <field name="insurance_cost" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="hr_employee_insurance_action" model="ir.actions.act_window">
+        <field name="name">Employee Insurance Cost</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('jes_hr_insurance.hr_employee_insurance_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('jes_hr_insurance.hr_employee_insurance_form')})]"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_employee_insurance_cost_view"
+              name="Employee Insurance Cost"
+              parent="jes_hr_insurance.menu_insurance_categ_menu_root"
+              action="hr_employee_insurance_action"
+              sequence="99"/>
+</data>
+</odoo>
