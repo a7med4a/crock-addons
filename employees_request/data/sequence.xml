@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="hr_questioning_request_sequence" model="ir.sequence">
+            <field name="name">Hr Questioning</field>
+            <field name="code">hr.questioning.sequence</field>
+            <field name="prefix">QR/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+         <record id="leave_order_sequence" model="ir.sequence">
+            <field name="name">leave.order</field>
+            <field name="code">leave.order</field>
+            <field name="prefix">LR/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+         <record id="overtime_order_sequence" model="ir.sequence">
+            <field name="name">overtime.order</field>
+            <field name="code">overtime.order</field>
+            <field name="prefix">OT/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+          <record id="insurance_requst_order_sequence" model="ir.sequence">
+            <field name="name">Insurance Request</field>
+            <field name="code">insurance.request</field>
+            <field name="prefix">INS/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+        <record id="letter_request_order_sequence" model="ir.sequence">
+            <field name="name">Letter Request</field>
+            <field name="code">letter.request</field>
+            <field name="prefix">R/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+         <record id="resignation_request_order_sequence" model="ir.sequence">
+            <field name="name">Resignation Request</field>
+            <field name="code">resignation.request</field>
+            <field name="prefix">R/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+        <record id="card_request_order_sequence" model="ir.sequence">
+            <field name="name">Card Request</field>
+            <field name="code">card.request</field>
+            <field name="prefix">CR/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+        <record id="financial_request_order_sequence" model="ir.sequence">
+            <field name="name">Financial Request</field>
+            <field name="code">financial.request</field>
+            <field name="prefix">FR/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+         <record id="breakdown_request_order_sequence" model="ir.sequence">
+            <field name="name">Breakdown Request</field>
+            <field name="code">breakdown.request</field>
+            <field name="prefix">SBR/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <record id="medical_request_order_sequence" model="ir.sequence">
+            <field name="name">Medical Request</field>
+            <field name="code">medical.request</field>
+            <field name="prefix">MR/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+          <record id="study_request_order_sequence" model="ir.sequence">
+            <field name="name">Study Request</field>
+            <field name="code">study.request</field>
+            <field name="prefix">SR/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+        <record id="ticket_request_order_sequence" model="ir.sequence">
+            <field name="name">Ticket Request</field>
+            <field name="code">ticket.request</field>
+            <field name="prefix">TR/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+         <record id="need_request_order_sequence" model="ir.sequence">
+            <field name="name">Need Request</field>
+            <field name="code">need.request</field>
+            <field name="prefix">NR/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+        <record id="deputation_request_order_sequence" model="ir.sequence">
+            <field name="name">Deputation Request</field>
+            <field name="code">deputation.request</field>
+            <field name="prefix">DR/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+         <record id="study_include_request_order_sequence" model="ir.sequence">
+            <field name="name">Study Include Request</field>
+            <field name="code">study_include.request</field>
+            <field name="prefix">DR/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+         <record id="overtime_request_order_sequence" model="ir.sequence">
+            <field name="name">overtime.order</field>
+            <field name="code">overtime.request</field>
+            <field name="prefix">OT/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <record id="event_request_order_sequence" model="ir.sequence">
+            <field name="name">Event Request</field>
+            <field name="code">event.request</field>
+            <field name="prefix">Event/%(month)s</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

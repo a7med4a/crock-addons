@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="overtime_request_form" model="ir.ui.view">
+            <field name="name">overtime.request.form</field>
+            <field name="model">overtime.request</field>
+            <field name="arch" type="xml">
+                <form string="">
+                     <header>
+                        <button name="action_confirm" string="Confirm"  class="oe_highlight" states="draft" type="object"/>
+                        <button name="action_paid" string="Pay" groups="employees_request.emp_request_access_group_admin"  class="oe_highlight" states="confirm" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,paid" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                 <field name="emp_readonly" invisible="1"/>
+                            <field name="employee_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly': [('emp_readonly', '=', True)]}"/>
+                                <field name="contract_id" invisible="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="policy_id" attrs="{'readonly': [('state', '!=', 'draft')]}" options="{'no_create':1}" required="1"/>
+                            </group>
+                            <group>
+                                <field name="request_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="contract_start_date" invisible="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                            <group string="Requested Hours">
+                                <field name="normal_hour" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="public_hour" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="weekend_hour" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                            <group string="Policy Hours">
+                                <field name="max_normal_hour" readonly="1" force_save="1"/>
+                                <field name="normal_hour_rate" readonly="1" force_save="1"/>
+                                <field name="max_public_hour" readonly="1" force_save="1"/>
+                                <field name="public_hour_rate" readonly="1" force_save="1"/>
+                                <field name="max_weekend_hour" readonly="1" force_save="1"/>
+                                <field name="weekend_hour_rate" readonly="1" force_save="1"/>
+                            </group>
+
+                             <group string="Total Values">
+                                <field name="salary_amount"/>
+                                <field name="total_hours"/>
+                                <field name="total_request_amount"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+<!--                        <field name="message_follower_ids"/>-->
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="overtime_request_tree" model="ir.ui.view">
+            <field name="name">overtime.request.tree</field>
+            <field name="model">overtime.request</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name" width="75px" />
+                    <field name="employee_id" width="100px" />
+                    <field name="request_date" width="75px" />
+<!--                    <field name="basic_salary" width="75px" />-->
+<!--                    <field name="extra_hours" widget="float_time" width="75px" />-->
+<!--                    <field name="extra_hours_vacation" widget="float_time" width="75px" />-->
+<!--                    <field name="hour_value" width="75px" />-->
+<!--                    <field name="extra_day_value" sum="Total" width="75px" />-->
+<!--                    <field name="extra_day_value_vacation" sum="Total" width="75px" />-->
+<!--                    <field name="total_hours_due" width="75px"  sum="Total"/>-->
+                    <field name="state" width="75px" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_request_overtime" model="ir.actions.act_window">
+            <field name="name">OverTime Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">overtime.request</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="hr_study_include_request_filter" model="ir.ui.view">
+            <field name="name">emp.study_include.request.search</field>
+            <field name="model">emp.study_include.request</field>
+            <field name="arch" type="xml">
+                <search string="Search Study Request">
+                    <field name="name"/>
+                    <field name="employee_id" string="Employee"/>
+                    <group string="Group By">
+                        <filter name="group_employee_id" string="Employee" context="{'group_by':'employee_id'}"/>
+                        <filter name="group_request_date" string="Date" context="{'group_by': 'request_date'}"/>
+<!--                        <filter name="group_date_to" string="Date To" context="{'group_by': 'date_to'}"/>-->
+                        <filter string="Status" name="state" context="{'group_by': 'state'}"/>
+                        <filter name="job_id" string="Job" context="{'group_by':'job_id'}"/>
+                        <filter name="department_id" string="Department" context="{'group_by':'department_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="study_include_request_form" model="ir.ui.view">
+            <field name="name">emp.study_include.request.form</field>
+            <field name="model">emp.study_include.request</field>
+            <field name="arch" type="xml">
+                <form string="Medical Form">
+                     <header>
+                        <button name="action_confirm" string="Confirm"  class="oe_highlight" states="draft" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1" placeholder="New#00001 ... "/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                 <field name="emp_readonly" invisible="1"/>
+                                <field name="employee_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly': [('emp_readonly', '=', True)]}" placeholder="Employee Name ... "/>
+                            </h1>
+                        </div>
+                        <group>
+
+                            <group>
+                                <field name="request_date"/>
+                                <field name="certification_level_id"/>
+                                <field name="study_include_field_id"/>
+                                <field name="study_type"/>
+                                <field name="certification_date"/>
+                                <field name="study_include_authority"/>
+                                <field name="date_from" invisible="1"/>
+                                <field name="date_to" invisible="1"/>
+                                <field name="day_number" invisible="1"/>
+                                <field name="related_attach" widget="many2many_binary" required="1"/>
+                                <field name="job_id" invisible="1"/>
+                                <field name="department_id" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+<!--                        <field name="message_follower_ids"/>-->
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="study_include_request_tree" model="ir.ui.view">
+            <field name="name">emp.study_include.request.tree</field>
+            <field name="model">emp.study_include.request</field>
+            <field name="arch" type="xml">
+                <tree string="Medical List">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                   <field name="request_date"/>
+                    <field name="certification_level_id"/>
+                    <field name="study_include_field_id"/>
+                    <field name="study_type"/>
+                    <field name="certification_date"/>
+                    <field name="study_include_authority"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_study_include_request" model="ir.actions.act_window">
+            <field name="name">Study Include Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">emp.study_include.request</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

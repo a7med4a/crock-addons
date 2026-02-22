@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="request_access_groups" model="ir.module.category">
+           <field name="name">Employee Request Groups</field>
+           <field name="sequence" eval="101"/>
+       </record>
+
+        <record id="request_access_user" model="res.groups">
+            <field name="name">Employee Requests User</field>
+              <field name="category_id" ref="request_access_groups"/>
+        </record>
+        
+         <record id="emp_request_access_group_admin" model="res.groups">
+            <field name="name">Employee Requests Administrator</field>
+              <field name="category_id" ref="request_access_groups"/>
+            <field name="implied_ids" eval="[(4, ref('employees_request.request_access_user'))]"/>
+        </record>
+
+    </data>
+</odoo>

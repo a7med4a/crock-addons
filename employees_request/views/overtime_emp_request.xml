@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_hr_emp_overtime_filter" model="ir.ui.view">
+        <field name="name">hr.emp.overtime.filter</field>
+        <field name="model">emp.overtime.request</field>
+        <field name="arch" type="xml">
+            <search string="Search Overtime">
+                <field name="name"/>
+                <field name="mission"/>
+                <field name="employee_id"/>
+                <separator/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="group_employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_request_date" string="Request Date" context="{'group_by': 'request_date'}"/>
+                    <filter name="job_id" string="Job" context="{'group_by':'job_id'}"/>
+                    <filter name="department_id" string="Department" context="{'group_by':'department_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+        <record id="overtime_emp_request_form" model="ir.ui.view">
+            <field name="name">emp.overtime.request.form</field>
+            <field name="model">emp.overtime.request</field>
+            <field name="arch" type="xml">
+                <form string="">
+                   <header>
+                        <button name="action_confirm" string="Confirm"  class="oe_highlight" states="draft" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                         <group string="Emp.Info" name="base_info">
+                            <field name="emp_readonly" invisible="1"/>
+                            <field name="need_request_id" invisible="1"/>
+                            <field name="employee_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly': [('emp_readonly', '=', True)]}"/>
+                            <field name="request_date"/>
+                            <field name="job_grade_id" invisible="1"/>
+                            <field name="mission"/>
+                             <field name="job_id" invisible="1"/>
+                            <field name="department_id" invisible="1"/>
+<!--                            <field name="description" string="Notes"/>-->
+                        </group>
+
+                    </group>
+
+
+
+                             <field name="overtime_line_ids" string="Overtime Info" force_save="1" nolabel="1" >
+                                    <tree editable="bottom" string="Overtime Info" >
+                                        <field name="date_from" width="20%" />
+                                        <field name="date_to" width="20%" />
+                                        <field name="number_of_hours" widget="float_time" width="10%" />
+                                        <field name="total_hours" widget="float_time" width="10%" />
+                                        <field name="total_weekdays"  width="10%" />
+                                        <field name="weekend_days" width="10%" />
+                                        <field name="value" groups="hr.group_hr_user" width="10%" />
+                                        <field name="present_required" width="10%" />
+                                        <field name="overtime_request_id" invisible="1"/>
+                                    </tree>
+
+                                </field>
+                    </sheet>
+                    <div class="oe_chatter">
+<!--                        <field name="message_follower_ids"/>-->
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="overtime_emp_request_tree" model="ir.ui.view">
+            <field name="name">emp.overtime.request.tree</field>
+            <field name="model">emp.overtime.request</field>
+            <field name="arch" type="xml">
+                <tree string="Overtime">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                  <field name="request_date"/>
+                    <field name="mission"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_emp_overtime_request" model="ir.actions.act_window">
+            <field name="name">OverTime Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">emp.overtime.request</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

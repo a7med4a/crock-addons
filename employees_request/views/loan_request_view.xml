@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record model="ir.ui.view" id="hr_loan_request_form_view">
+            <field name="name">hr.loan.form</field>
+            <field name="model">hr.loan</field>
+            <field name="inherit_id" ref="jeraisy_hrms.hr_loan_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_id']" position="before">
+                    <field name="emp_readonly" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='employee_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':['|',('emp_readonly', '=', True),('state','in',('approved2','cancel', 'completed'))]}</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

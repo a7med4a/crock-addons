@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_emp_need_request_filter" model="ir.ui.view">
+            <field name="name">emp.need.request.search</field>
+            <field name="model">emp.need.request</field>
+            <field name="arch" type="xml">
+                <search string="Search Need Request">
+                    <field name="name"/>
+                    <field name="employee_id" string="Employee"/>
+                    <field name="city_id"/>
+                    <field name="description"/>
+                    <group string="Group By">
+                        <filter name="group_employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                        <filter name="group_request_date" string="Request Date" context="{'group_by': 'request_date'}"/>
+                        <filter string="Status" name="state" context="{'group_by': 'state'}"/>
+<!--                        <filter string="Request Type" name="request_type" context="{'group_by': 'request_type'}"/>-->
+                        <filter string="Need Type" name="need_type" context="{'group_by': 'need_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="need_request_form" model="ir.ui.view">
+            <field name="name">emp.need.request.form</field>
+            <field name="model">emp.need.request</field>
+            <field name="arch" type="xml">
+                <form string="Medical Form">
+                    <header>
+                        <button name="action_confirm" string="Confirm" class="oe_highlight" states="draft"
+                                type="object"/>
+                        <button name="action_create_deputation" string="Create Deputation" class="oe_highlight" states="approved"
+                                type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"
+                               statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <field name="deputation_count" invisible="1"/>
+                            <field name="overtime_count" invisible="1"/>
+                            <button type="object" class="oe_stat_button" id="related_deputation" icon="fa-pencil"
+                                    name="open_deputation" string="Related Deputation"
+                                    attrs="{'invisible': [('deputation_count', '=', 0 )]}">
+                            </button>
+                            <button type="object" class="oe_stat_button" id="related_overtime" icon="fa-pencil"
+                                    name="open_overtime" string="Related Overtime"
+                                    attrs="{'invisible': [('overtime_count', '=', 0 )]}">
+                            </button>
+                        </div>
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1" placeholder="New#00001 ... "/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="request_date"/>
+                            </group>
+                            <group>
+                                <field name="need_type" invisible='1'/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Deputation Details" name="deputation"
+                                  attrs="{'invisible': [('need_type', '!=', 'deputation')]}">
+                                <field name="deputation_request_line_ids">
+                                    <tree editable="" >
+                                        <field name="employee_id" required="1" options="{'no_create': True, 'no_open': True}" placeholder="Employee Name ... "/>
+                                        <field name="date_from" required="1"/>
+                                        <field name="dep_request_type"/>
+                                        <field name="country_id"
+                                                attrs="{'invisible': [('dep_request_type', '!=', 'external')], 'required': [('dep_request_type', '=', 'external')]}"/>
+                                        <field name="state_id" domain="[('country_id.code', '=', 'SA')]"
+                                                       attrs="{'invisible': [('dep_request_type', '!=', 'internal')], 'required': [('dep_request_type', '=', 'internal')]}"/>
+                                        <field name="external_id"
+                                               attrs="{'invisible': [('dep_request_type', '!=', 'internal')], 'required': [('dep_request_type', '=', 'internal')]}"/>
+                                        <field name="grade_id"/>
+                                        <field name="date_to" required="1"/>
+                                        <field name="mission" required="1"/>
+                                        <field name="description"/>
+                                        <field name="number_of_days" groups="hr.group_hr_user"/>
+                                        <field name="cost_days" groups="hr.group_hr_user"/>
+                                        <field name="cost_with_allowances" groups="hr.group_hr_user"/>
+                                        <field name="cost_without_allowances" groups="hr.group_hr_user"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="employee_id" required="1" options="{'no_create': True, 'no_open': True}" placeholder="Employee Name ... "/>
+                                                <field name="date_from" required="1"/>
+                                                <field name="dep_request_type" required="1"/>
+                                                <field name="country_id"
+                                                       attrs="{'invisible': [('dep_request_type', '!=', 'external')], 'required': [('dep_request_type', '=', 'external')]}"/>
+                                                <field name="state_id" domain="[('country_id.code', '=', 'SA')]"
+                                                       attrs="{'invisible': [('dep_request_type', '!=', 'internal')], 'required': [('dep_request_type', '=', 'internal')]}"/>
+                                                <field name="external_id"
+                                                       attrs="{'invisible': [('dep_request_type', '!=', 'internal')], 'required': [('dep_request_type', '=', 'internal')]}"/>
+                                            </group>
+                                            <group>
+                                                <field name="grade_id"/>
+                                                <field name="date_to" required="1"/>
+                                                <field name="mission" required="1"/>
+                                                <field name="description"/>
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <field name="number_of_days" groups="hr.group_hr_user"/>
+                                            <field name="cost_days" groups="hr.group_hr_user"/>
+                                            <field name="cost_with_allowances" groups="hr.group_hr_user"/>
+                                            <field name="cost_without_allowances" groups="hr.group_hr_user"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Assignment Details" name="assigment"
+                                  attrs="{'invisible': [('need_type', '!=', 'assigned')]}">
+                                <field name="overtime_request_line_ids">
+                                    <tree editable="">
+                                        <field name="employee_id" required="1" options="{'no_create': True, 'no_open': True}" placeholder="Employee Name ... "/>
+                                        <field name="date_from" required="1"/>
+                                        <field name="date_to" required="1"/>
+                                        <field name="number_of_hours" required="1"/>
+                                        <field name="total_weekdays"/>
+                                        <field name="exclude_vacation_days"/>
+                                        <field name="present_required"/>
+                                        <field name="mission" required="1"/>
+                                        <field name="total_hours"/>
+                                        <field name="weekend_days"/>
+                                        <field name="value" groups="hr.group_hr_user"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="employee_id" required="1" options="{'no_create': True, 'no_open': True}" placeholder="Employee Name ... "/>
+                                                <field name="date_from" required="1"/>
+                                                <field name="number_of_hours" required="1"/>
+                                                <field name="total_weekdays"/>
+                                                <field name="exclude_vacation_days"/>
+                                                <field name="present_required"/>
+                                            </group>
+                                            <group>
+                                                <field name="mission" required="1"/>
+                                                <field name="date_to" required="1"/>
+                                                <field name="total_hours"/>
+                                                <field name="weekend_days"/>
+                                                <field name="value"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+
+                            <page string="Field Work" name="field_work_lines" attrs="{'invisible': [('need_type', '!=', 'field_work')]}">
+                                <field name="field_work" widget="section_and_note_one2many" mode="tree">
+                                    <tree editable="bottom" string="Field Work Lines">
+                                        <field name="need_request_id"  invisible="1"/>
+                                        <field name="department_id"/>
+                                        <field name="employee_id" required="1"/>
+                                        <field name="date_from" required="1"/>
+                                        <field name="date_to" required="1"/>
+                                        <field name="mission" required="1"/>
+                                        <field name="state"/>
+                                        <button string="Approve" name="action_approve_field_work" type="object" class="btn-primary" attrs="{'invisible': [('state', '=', 'confirm')]}"/>
+                                        <button string="Refuse" name="action_refuse_field_work" type="object" class="btn-primary" attrs="{'invisible': [('state', '=', 'refuse')]}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <!--                        <field name="message_follower_ids"/>-->
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="need_request_tree" model="ir.ui.view">
+            <field name="name">emp.need.request.tree</field>
+            <field name="model">emp.need.request</field>
+            <field name="arch" type="xml">
+                <tree string="Medical List">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="request_date"/>
+<!--                    <field name="request_type"/>-->
+                    <field name="city_id"/>
+                    <field name="description" string="Reason"/>
+                    <field name="need_type"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_field_work_need_request" model="ir.actions.act_window">
+            <field name="name">Need Request (Field Work)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">emp.need.request</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="domain">[('need_type', '=', 'field_work')]</field>
+            <field name="context">{'default_need_type': 'field_work'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <record id="action_deputation_need_request" model="ir.actions.act_window">
+            <field name="name">Need Request (Deputation)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">emp.need.request</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="domain">[('need_type', '=', 'deputation')]</field>
+            <field name="context">{'default_need_type': 'deputation'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <record id="action_assigned_need_request" model="ir.actions.act_window">
+            <field name="name">Need Request (Assigned)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">emp.need.request</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="domain">[('need_type', '=', 'assigned')]</field>
+            <field name="context">{'default_need_type': 'assigned'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

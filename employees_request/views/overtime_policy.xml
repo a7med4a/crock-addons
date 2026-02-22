@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="overtime_policy_form" model="ir.ui.view">
+            <field name="name">overtime.policy.form</field>
+            <field name="model">overtime.policy</field>
+            <field name="arch" type="xml">
+                <form string="">
+                     <header>
+                        <button name="action_confirm" string="Confirm" class="oe_highlight" states="draft" type="object"/>
+                        <button name="action_reset_draft" string="Set To Draft"  class="oe_highlight" states="confirm" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Normal Overtime">
+                                <field name="normal_hour_rate" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="max_normal_hour" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                            </group>
+                            <group string="Public Holiday Overtime">
+                                <field name="public_hour_rate" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="max_public_hour" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                            </group>
+                            <group string="WeekEnd Overtime">
+                                <field name="weekend_hour_rate" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="max_weekend_hour" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                            </group>
+                            <group string="Calculation Based On">
+                                <field name="salary_structure_id" required="1" options="{'no_create': 1}" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="calc_type" required="1" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="non_calc_allowance_ids" options="{'no_create': 1}" widget="many2many_tags" attrs="{'invisible': [('calc_type', '!=', 'basic_allowance')], 'readonly': [('state', '=', 'confirm')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+<!--                        <field name="message_follower_ids"/>-->
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="overtime_policy_tree" model="ir.ui.view">
+            <field name="name">overtime.policy.tree</field>
+            <field name="model">overtime.policy</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name" width="75px" />
+                    <field name="normal_hour_rate" width="75px" />
+                    <field name="max_normal_hour" width="75px" />
+                    <field name="public_hour_rate" width="75px" />
+                    <field name="max_public_hour" width="75px" />
+                    <field name="weekend_hour_rate" width="75px" />
+                    <field name="max_weekend_hour" width="75px" />
+                    <field name="state" width="75px" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_policy_overtime" model="ir.actions.act_window">
+            <field name="name">OverTime Policy</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">overtime.policy</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

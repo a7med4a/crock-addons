@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="study_request_form" model="ir.ui.view">
+            <field name="name">emp.study.request.form</field>
+            <field name="model">emp.study.request</field>
+            <field name="arch" type="xml">
+                <form string="Medical Form">
+                     <header>
+                        <button name="action_confirm" string="Confirm"  class="oe_highlight" states="draft" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1" placeholder="New#00001 ... "/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                 <field name="emp_readonly" invisible="1"/>
+                                <field name="employee_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly': [('emp_readonly', '=', True)]}" placeholder="Employee Name ... "/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="request_date"/>
+                                <field name="date_from" required="1"/>
+                                <field name="date_to" required="1"/>
+                                <field name="day_number"/>
+                            </group>
+                            <group>
+                                <field name="study_type" required="1"/>
+                                <field name="study_period" attrs="{'required': [('study_type', 'not in', ('Online', 'Full-Time'))], 'invisible': [('study_type', 'in', ('Online', 'Full-Time'))]}"/>
+                                <field name="certification_level_id"/>
+                                <field name="study_field_id"/>
+                                <field name="study_authority"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+<!--                        <field name="message_follower_ids"/>-->
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="study_request_tree" model="ir.ui.view">
+            <field name="name">emp.study.request.tree</field>
+            <field name="model">emp.study.request</field>
+            <field name="arch" type="xml">
+                <tree string="Medical List">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                   <field name="request_date"/>
+                    <field name="study_type"/>
+                    <field name="study_period"/>
+                    <field name="certification_level_id"/>
+                    <field name="study_field_id"/>
+                    <field name="study_authority"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_study_request" model="ir.actions.act_window">
+            <field name="name">Study Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">emp.study.request</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+ <record id="action_study_certification" model="ir.actions.act_window">
+            <field name="name">Study Certifications</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">certification.level</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <record id="action_study_fields" model="ir.actions.act_window">
+            <field name="name">Study Fields</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">study.field</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

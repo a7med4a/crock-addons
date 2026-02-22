@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_questioning_form_view" model="ir.ui.view">
+            <field name="name">hr_questioning.form</field>
+            <field name="model">hr.questioning</field>
+            <field name="arch" type="xml">
+                <form string="hr_questioning">
+                    <header>
+                        <button string="تاكيد" name="action_confirm" states="draft" type="object" class="oe_highlight"/>
+                        <button string="ارسال للموافقة" name="action_submit" states="confirm" type="object"
+                                class="oe_highlight"/>
+                        <button string="موافقة" name="action_approve" states="man_validate" type="object"
+                                class="oe_highlight"/>
+                        <button string="موافقة" name="hr_approve" groups="hr.group_hr_user" states="hr_validate"
+                                type="object" class="oe_highlight"/>
+                        <button string="رفض" name="action_question_refuse" states="man_validate" type="object"/>
+                        <button string="رفض" name="hr_refuse" groups="hr.group_hr_user" states="hr_validate"
+                                type="object"/>
+                        <field name="justified" invisible="1"/>
+                        <field name="employee_to_questioning" invisible="1"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="sequence"/>
+                            <h2>
+                                <field name="sequence"/>
+                            </h2>
+                            <label for="employee_id"/>
+                            <h2>
+                                <field name="employee_id" options="{'no_create': 1, 'no_open': 1}"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="due_date" invisible="1"/>
+                                <field name="penalty_class" options="{'no_create': 1, 'no_open': 1}" required="1"
+                                       attrs="{'invisible': [['questioning_type', '!=', 'violation']]}"/>
+                                <field name="penalty" options="{'no_create': 1, 'no_open': 1}" required="1"
+                                       domain="[('penalty_class_id', '=', penalty_class)]"
+                                       attrs="{'invisible': [['questioning_type', '!=', 'violation']]}"/>
+                                <field name="violation_reason" required="1" invisible="1"
+                                       attrs="{'invisible': [['questioning_type', '!=', 'violation']]}"/>
+                            </group>
+                            <group>
+                                <field name="submit_date" readonly="1"/>
+                                <field name="is_past_due" invisible="1"/>
+                                <field name="employee_to_questioning" invisible="1"/>
+                                <field name="questioning_type" invisible="1"/>
+                                <field name="penalty_class_code" invisible="1" string="Class Code"/>
+                                <field name="penalty_code" invisible="1" string="Penalty Code"/>
+                                <label for="date_start" string="Period"
+                                       attrs="{'invisible': ['|', ('penalty_class_code', '!=', 1),('penalty_code', 'not in', (6))]}"/>
+                                <div class="o_row"
+                                     attrs="{'invisible': ['|', ('penalty_class_code', '!=', 1),('penalty_code', 'not in', (6))]}">
+                                    <field name="date_start"
+                                           attrs="{'required': [('penalty_class_code', '=', 1),('penalty_code', 'in', (6))]}"
+                                           nolabel="1" placeholder="07/08/2022"/>
+                                    <field name="date_end"
+                                           attrs="{'required': [('penalty_class_code', '=', 1),('penalty_code', 'in', (6))]}"
+                                           nolabel="1" placeholder="07/08/2022"/>
+                                </div>
+                                <field name="reason"
+                                       attrs="{'readonly': ['|','|', '|', ('employee_to_questioning', '=', False), ('is_past_due', '=', True),('state','=','approved'),('justified','=',True)]}"/>
+                            </group>
+                        </group>
+                        <group col="6"
+                               attrs="{'invisible': [['state', 'not in', ('man_validate','hr_validate','done')]]}">
+                            <field name="first_approver_id"/>
+                            <field name="first_approver_choice" nolabel="1"/>
+                        </group>
+                        <group col="6" attrs="{'invisible': [['state', 'not in', ('hr_validate','done')]]}">
+                            <field name="second_approver_id"/>
+                            <field name="second_approver_choice" nolabel="1"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter" groups="hr.group_hr_user">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_questioning_tree_view" model="ir.ui.view">
+            <field name="name">hr.questioning.tree</field>
+            <field name="model">hr.questioning</field>
+            <field name="arch" type="xml">
+                <tree string="hr_questioning" decoration-danger="state == 'refuse'">
+                    <field name="sequence"/>
+                    <field name="employee_id"/>
+                    <field name="create_date"/>
+                    <field name="penalty_class"/>
+                    <field name="state"/>
+                    <field name="submit_date"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="hr_questioning_act_window" model="ir.actions.act_window">
+            <field name="name">Questioning Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.questioning</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add new Questioning.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="attendance_exception_view" model="ir.ui.view">
+            <field name="name">attendance.exception.form</field>
+            <field name="model">attendance.exception.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Attendance Exception">
+                    <sheet>
+                        <field name="employee_id" options="{'no_create': True, 'no_open': True}" readonly="1"/>
+                        <field name="description" placeholder="Enter Reason for this Request ..."/>
+                        <separator string="Lines for Exception"/>
+                        <field name="attendance_lines" options="{'create': 0, 'edit': 0}" domain="[('employee_id', '=',employee_id)]"/>
+                    </sheet>
+                    <footer>
+                        <button string="Confirm" name="action_request" type="object" default_focus="1" class="oe_highlight" />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

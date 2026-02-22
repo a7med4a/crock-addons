@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <menuitem id="hcm_employee_request_root_mnu" parent="jeraisy_hrms.jes_hcm_root" name="Employee Requests" sequence="20"/>
+<!--        <menuitem id="employee_request_root_mnu" parent="jeraisy_hrms.menu_emp_request_categ" name="Employee Requests" sequence="20"/>-->
+        <menuitem id="jes_leave_menu_new_request" parent="jeraisy_hrms.menu_emp_request_categ" action="hr_holidays.hr_leave_action_my" name="Leave Request" sequence="1"/>
+        <menuitem id="jes_leave_cutoff_menu_new_request" parent="jeraisy_hrms.menu_emp_request_categ" action="jes_hr_leave.hr_leave_cutoff_action_approve_department" name="Leave Cutoff Request" sequence="1"/>
+        <menuitem id="jes_leave_extend_menu_new_request" parent="jeraisy_hrms.menu_emp_request_categ" action="jes_hr_leave.hr_leave_extend_action_approve_department" name="Leave Extend Request" sequence="1"/>
+        <menuitem id="jes_permission_menu_new_request" parent="jeraisy_hrms.menu_emp_request_categ" action="jes_hr_leave.hr_permission_action" name="Permission Request" sequence="2"/>
+        <menuitem id="hcm_hr_loan_menu" name="Loans Request" parent="hcm_employee_request_root_mnu" action="jeraisy_hrms.action_hr_loan_tree_view" sequence="2"/>
+        <menuitem id="leave_request_menu_action" name="Leave Allowance Request" parent="hcm_employee_request_root_mnu" action="employees_request.action_leave_request" sequence="2"/>
+        <menuitem id="action_request_overtime_action" name="OverTime Request" parent="hcm_employee_request_root_mnu" action="employees_request.action_request_overtime" sequence="3"/>
+        <menuitem id="letter_request_menu_action" name="Identification Letters" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_letter_request" sequence="10"/>
+<!--        <menuitem id="insurance_request_menu_action" name="Insurance Request" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_insurance_request" sequence="15"/>-->
+        <menuitem id="menu_action_resignation_request" name="Resignation Request" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_resignation_request" sequence="15"/>
+        <menuitem id="menu_action_hr_resignation_request" name="Resignation Request" parent="hcm_employee_request_root_mnu" action="employees_request.action_hr_resignation_request" sequence="3"/>
+        <menuitem id="menu_action_card_request" name="Card Request" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_card_request" sequence="15"/>
+<!--        <menuitem id="menu_action_financial_request" name="Financial Request" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_financial_request" sequence="15"/>-->
+        <menuitem id="menu_action_salary_breakdown_request" name="Salary Breakdown Request" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_salary_breakdown_request" sequence="15"/>
+        <menuitem id="menu_action_medical_request" name="Medical Request" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_medical_request" sequence="15"/>
+        <menuitem id="menu_action_study_request" name="Study Request" parent="jeraisy_hrms.menu_emp_request_categ"
+                  action="employees_request.action_study_request" sequence="15"/>
+        <menuitem id="menu_action_ticket_request" name="Ticket Request" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_ticket_request" groups="hr_access_base.group_foreign_employee" sequence="15"/>
+        <menuitem id="menu_action_field_work_need_request" name="Need Request (Field Work)" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_field_work_need_request" sequence="15"/>
+        <menuitem id="menu_action_deputation_need_request" name="Need Request (Deputation)" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_deputation_need_request" sequence="16"/>
+        <menuitem id="menu_action_assigned_need_request" name="Need Request (Assigned)" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_assigned_need_request" sequence="17"/>
+        <menuitem id="menu_action_deputation_request" name="Deputation Request" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_deputation_request" sequence="18"/>
+<!--        <menuitem id="event_request_menu_action" name="Event" parent="hcm_employee_request_root_mnu" action="employees_request.action_event_request" sequence="15"/>-->
+<!--        <menuitem id="event_request_menu_action" name="Event" parent="hcm_employee_request_root_mnu" action="employees_request.action_event_request" sequence="15"/>-->
+<!--        <menuitem id="event_line_request_menu_action" name="Event Lines" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_event_line_request" sequence="15"/>-->
+        <menuitem id="menu_action_study_include_request" name="Study Include Request" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_study_include_request" sequence="15"/>
+        <menuitem id="menu_action_overtime_request" name="OverTime Emp. Request" parent="jeraisy_hrms.menu_emp_request_categ" action="employees_request.action_emp_overtime_request" sequence="18" active="True"/>
+        <menuitem id="menu_hr_service_questioning_request" name="Questioning Request" parent="jeraisy_hrms.jes_hcm_root" action="employees_request.hr_questioning_act_window" sequence="5" active="True"/>
+        <!--        config-->
+
+        <menuitem id="hcm_employee_request_config_mnu" name="Config Requests" sequence="2"
+                  parent="jeraisy_hrms.menu_jes_hcm_configuration"/>
+
+        <menuitem id="action_overtime_policy_view" name="OverTime Policy" parent="hcm_employee_request_config_mnu"
+                  action="employees_request.action_policy_overtime" sequence="2"/>
+        <menuitem id="action_insurance_relation_menu" parent="hcm_employee_request_config_mnu"
+                  action="employees_request.action_insurance_relation" sequence="2"/>
+        <menuitem id="action_study_certification_menu" parent="hcm_employee_request_config_mnu"
+                  action="employees_request.action_study_certification" sequence="2"/>
+        <menuitem id="action_study_fields_menu" parent="hcm_employee_request_config_mnu"
+                  action="employees_request.action_study_fields" sequence="2"/>
+
+    </data>
+</odoo>

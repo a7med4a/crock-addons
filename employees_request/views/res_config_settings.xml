@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="res_config_settings_employee_request_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.employee.request</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="90"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Employee Requests" string="Employee Requests" data-key="employees_request" >
+                        <h2>Contract Expire Days</h2>
+                        <div class="row mt16 o_settings_container" name="contract_expire_days_num">
+                            <div class="col-12 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group">
+                                         <div class="row mt16">
+                                            <label for="contract_expire_days_num"  class="col-2 o_light_label"/>
+                                            <field name="contract_expire_days_num" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>Advance Salary Request</h2>
+                        <div class="row mt16 o_settings_container" name="salary_request">
+                            <div class="col-12 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group">
+                                         <div class="row mt16">
+                                            <label for="req_salary_acc_debit_id"  class="col-2 o_light_label"/>
+                                            <field name="req_salary_acc_debit_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+                                        <div class="row mt16">
+                                            <label for="req_salary_acc_credit_id"  class="col-2 o_light_label"/>
+                                            <field name="req_salary_acc_credit_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+                                       
+
+                                         <div class="row mt16">
+                                            <label for="req_salary_journal_id"  class="col-2 o_light_label"/>
+                                            <field name="req_salary_journal_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>Leave Request</h2>
+                        <div class="row mt16 o_settings_container" name="leave_request">
+                            <div class="col-12 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group">
+                                         <div class="row mt16">
+                                            <label for="req_leave_acc_debit_id"  class="col-2 o_light_label"/>
+                                            <field name="req_leave_acc_debit_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+                                        <div class="row mt16">
+                                            <label for="req_leave_acc_credit_id"  class="col-2 o_light_label"/>
+                                            <field name="req_leave_acc_credit_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+                                       
+                                        <div class="row mt16">
+                                            <label for="req_leave_journal_id"  class="col-2 o_light_label"/>
+                                            <field name="req_leave_journal_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>OverTime Request</h2>
+                        <div class="row mt16 o_settings_container" name="overtime_request">
+                            <div class="col-12 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group">
+                                        <div class="row mt16">
+                                            <label for="req_overtime_acc_debit_id"  class="col-2 o_light_label"/>
+                                            <field name="req_overtime_acc_debit_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+                                        <div class="row mt16">
+                                            <label for="req_overtime_acc_credit_id"  class="col-2 o_light_label"/>
+                                            <field name="req_overtime_acc_credit_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+                                        
+
+                                        <div class="row mt16">
+                                            <label for="req_overtime_journal_id"  class="col-2 o_light_label"/>
+                                            <field name="req_overtime_journal_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>Housing Request</h2>
+                        <div class="row mt16 o_settings_container" name="housing_request">
+                            <div class="col-12 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group">
+                                        <div class="row mt16">
+                                            <label for="req_hous_acc_debit_id"  class="col-2 o_light_label"/>
+                                            <field name="req_hous_acc_debit_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+                                        <div class="row mt16">
+                                            <label for="req_hous_acc_credit_id"  class="col-2 o_light_label"/>
+                                            <field name="req_hous_acc_credit_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+                                        
+                                        <div class="row mt16">
+                                            <label for="req_hous_journal_id"  class="col-2 o_light_label"/>
+                                            <field name="req_hous_journal_id" options="{'no_open': True, 'no_create': True}"/>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_employee_request_config" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'employees_request', 'bin_size': False}</field>
+        </record>
+
+        <record id="view_hr_self_service_settings_form_inherit" model="ir.ui.view">
+            <field name="name">hr.self.service.settings.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="hr_payroll.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='hr_payroll_accountant']" position="inside">
+                    <div class="col-lg-6 col-12 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="ticket_request_debit_account_id" string="Ticket Request Debit Account"/>
+                            <div class="text-muted">
+                                <field name="ticket_request_debit_account_id"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="request_need_debit_account_id" string="Request Need Debit Account"/>
+                            <div class="text-muted">
+                                <field name="request_need_debit_account_id"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

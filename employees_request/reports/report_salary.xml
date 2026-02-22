@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<odoo>
+      <record id="action_print_employee_salary_breakdown" model="ir.actions.report">
+            <field name="name">Print Employee Salary Breakdown</field>
+            <field name="model">emp.salary_breakdown.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">employees_request.template_salary_breakdown_doc</field>
+            <field name="report_file">employees_request.template_salary_breakdown_doc</field>
+            <field name="paperformat_id" ref="employees_request.letter_paper_format"/>
+            <field name="binding_model_id" eval="False"/>
+            <field name="binding_type">report</field>
+        </record>
+    <template id="template_salary_breakdown_doc">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                 <t t-set="object" t-value="o.with_context(lang='en_US')"/>
+                <t t-call="employees_request.employees_request_header">
+                     <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="1"/>
+                    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400&amp;display=swap" rel="stylesheet"/>
+
+
+
+                 <style>
+                   *{
+                   font-family: 'Noto Kufi Arabic', sans-serif;
+
+                   }
+
+
+                 </style>
+
+                            <div class="page" style="font-family: 'Noto Kufi Arabic', sans-serif;font-size:14px;font-weight: bold;">
+                        <center>
+                            <h2> شهادة تعريف وتثبيت بالراتب</h2>
+                            <h2> Salary Statement</h2>
+                        </center>
+                         <table border="1" cellpadding="1" cellspacing="1" width="100%" dir="ltr"
+                           style="background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                             <tr style="font-size: 16px;">
+                            <td width="50%" valign="middle" dir="ltr" align="left" style="font-size: 16px;">
+                                <span>
+                                    To:
+                                    <t t-out="object.new_bank_id.name"/>
+                                    <br/>
+                                    We would like to inform you that the person referred herein is working with us according to the following information:
+                                </span>
+                            </td>
+                            <td width="5%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+                                    إلى:
+                                    <t t-out="object.new_bank_id.name"/>
+                                      <br/>
+                                    نفيدكم بأن المذكور أدناه يعمل لدينا حسب المعلومات الآتية:
+                                </span>
+                            </td>
+                        </tr>
+                             <tr style="font-size: 16px;">
+                                    <td colspan="3" valign="middle" height="20" align="center"> </td>
+                              </tr>
+                             <tr style="font-size: 16px;">
+                            <td width="50%" valign="middle" dir="ltr" align="left" style="font-size: 16px;">
+                                <span>
+                                    Name:
+                                    <t t-out="object.employee_id.sudo().get_employee_name('en')"/>
+                                </span>
+                            </td>
+                            <td width="5%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+                                    الاسم:
+                                    <t t-out="object.employee_id.sudo().get_employee_name('ar')"/>
+                                </span>
+                            </td>
+                        </tr>
+                             <tr style="font-size: 16px;">
+                            <td width="50%" valign="middle" dir="ltr" align="left" style="font-size: 16px;">
+                                <span>
+                                    Nationality:
+                                    <t t-out="object.employee_id.sudo().country_id.name"/>
+                                </span>
+                            </td>
+                             <td width="5%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+                                    الجنسية:
+                                    <t t-out="object.employee_id.sudo().country_id.with_context(lang='ar_001').name"/>
+                                </span>
+                            </td>
+                        </tr>
+                             <tr style="font-size: 16px;">
+                            <td width="50%" valign="middle" dir="ltr" align="left" style="font-size: 16px;">
+                                <span>
+                                    National ID Number or Iqama:
+                                    <t t-out="object.identification_id"/>
+                                </span>
+                            </td>
+                             <td width="5%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+                                    رقم الهوية الوطنية:
+                                    <t t-out="object.identification_id"/>
+                                </span>
+                            </td>
+                        </tr>
+                             <tr style="font-size: 16px;">
+                            <td width="50%" valign="middle" dir="ltr" align="left" style="font-size: 16px;">
+                                <span>
+                                    Employee Code:
+                                    <t t-out="object.employee_id.sudo().pin"/>
+                                </span>
+                            </td>
+                            <td width="5%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+                                    الرقم الوظيفي:
+                                    <t t-out="object.employee_id.sudo().pin"/>
+                                </span>
+                            </td>
+                        </tr>
+                             <tr style="font-size: 16px;">
+                            <td width="50%" valign="middle" dir="ltr" align="left" style="font-size: 16px;">
+                                <span>
+                                    Job title:
+                                    <t t-out="object.employee_id.sudo().job_title"/>
+                                </span>
+                            </td>
+                            <td width="5%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" >
+                                <span>
+                                    المسمى الوظيفي:
+                                    <t t-out="object.employee_id.sudo().job_title"/>
+                                </span>
+                            </td>
+                        </tr>
+                             <tr style="font-size: 16px;">
+                                <t t-set="base" t-value="object.employee_id.sudo().contract_id.wage"/>
+                                <t t-set="transport" t-value="object.employee_id.sudo().contract_id.transportation"/>
+                                <t t-set="house" t-value="object.employee_id.sudo().contract_id.housing"/>
+                                <t t-set="total" t-value="base + transport + house"/>
+                            <td width="50%" valign="middle" dir="ltr" align="left" style="font-size: 16px;">
+
+                                <span>
+
+                                    Receives a monthly salary of (<t t-out="total"/>)
+                                    <br/>
+                                    as per below:
+                                </span> <br/>
+
+                                Basic salary:
+                                <span>
+                                    <t t-out="base"/> SAR 
+
+                                </span> <br/>
+                                Housing allowance:
+                                <span>
+                                    <t t-out="house"/> SAR 
+                                </span> <br/>
+                                Transportation allowance:
+                                <span>
+                                  <t t-out="transport"/> SAR 
+                                </span> <br/>
+                                Total:
+                                <span>
+                                    <t t-out="total"/> SAR
+                                </span>
+                            </td>
+                            <td width="5%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+
+                                <span>
+                                    ويتقاضى راتبا شهريا قدره (<t t-out="total"/>)
+                                    <br/>
+                                    على النحو الآتي:
+
+
+                                </span> <br/>
+                                الراتب الاساسي:
+                                <span>
+                                    <t t-out="base"/> ريال  
+
+                                </span> <br/>
+                                بدل سكن:
+                                <span>
+                                    <t t-out="house"/> ريال  
+                                </span> <br/>
+                                بدل النقل:
+                                <span>
+                                  <t t-out="transport"/>  ريال  
+                                </span> <br/>
+                                الإجمالي:
+                                <span>
+                                    <t t-out="total"/>     ريال  
+                                </span>
+                            </td>
+                        </tr>
+                             <tr style="font-size: 16px;">
+                                    <td colspan="3" valign="middle" height="20" align="center"> </td>
+                              </tr>
+                            <tr style="font-size: 16px;">
+                              <td width="50%" valign="middle" dir="ltr" align="left" style="font-size: 14px;">
+                                <span>
+                                    We shall transfer his salary to you in
+                                    <t t-out="object.new_bank_id.name"/>
+                                    <br/>
+                                    to IBAN No. (<t t-out="object.new_iban_number"/>)
+<br/>
+                                    the salary shall not be transferred to any other bank accounts unless the applicant referred to herein is issued a clearance letter from your side.
+                                      <br/>
+                                    This letter has been issued upon the request of the applicant referred to herein to be submitted to whom it may concern, without the Center holding any legal responsibility or accountability.
+                                </span>
+                            </td>
+                              <td width="5%" valign="middle" align="center"> </td>
+                              <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+
+                                    ونتعهد بتحويل راتبه لديكم في
+<t t-out="object.new_bank_id.name"/>
+                                    <br/>
+                                    على أيبان رقم
+                                    (<t t-out="object.new_iban_number"/>)
+
+                                    <br/>
+
+                                    ولا يتم تحويل الراتب إلى بنك آخر إلا بخطاب إخلاء طرف من قبلكم .
+
+                                      <br/>
+
+                                    حررت هذة الشهادة للمذكور بناء على طلبه لتقديمها لمن يهمه الأمر وذلك دون أن يكون على المركز ادنى مسؤولية .
+
+                                </span>
+                            </td>
+                        </tr>
+
+                    </table>
+                        <br/>
+                        <br/>
+                        <br/>
+                         <div class="row" dir="rtl">
+                            <div class="col-6">
+                                <center>
+                                    <img t-if="res_company.print_signature" t-att-src="image_data_uri(res_company.print_signature)" alt="Logo" style="display:block;margin-top:3px; height:200px; width: 400px;"/>
+                                </center>
+
+
+                                    </div>
+                            <div class="col-6">
+                                <center>
+                                    <img t-if="res_company.print_seal" t-att-src="image_data_uri(res_company.print_seal)" alt="Logo" style="display:block;margin-top:3px; height:200px; width: 250px;"/>
+
+                                </center>
+                            </div>
+
+                            </div>
+                        
+                        </div>
+                     </t>
+            </t>
+        </t>
+    </template>
+
+
+
+
+
+
+
+</odoo>

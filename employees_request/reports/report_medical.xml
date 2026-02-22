@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+
+<!--    <record id="medical_paper_format" model='report.paperformat'>-->
+<!--            <field name="name">PDF sales Format</field>-->
+<!--            <field name="format">custom</field>-->
+<!--            <field name="orientation">Portrait</field>-->
+<!--            <field name="margin_top">35</field>-->
+<!--            <field name="margin_bottom">20</field>-->
+<!--            <field name="margin_left">3</field>-->
+<!--            <field name="margin_right">3</field>-->
+<!--            <field name="header_line" eval="False"/>-->
+<!--            <field name="header_spacing">30</field>-->
+<!--            <field name="dpi">90</field>-->
+<!--        </record>-->
+
+
+      <record id="action_print_employee_medical" model="ir.actions.report">
+            <field name="name">Print Employee Medical</field>
+            <field name="model">emp.medical.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">employees_request.template_employee_medical_doc</field>
+            <field name="report_file">employees_request.template_employee_medical_doc</field>
+            <field name="paperformat_id" ref="employees_request.letter_paper_format"/>
+<!--            <field name="binding_model_id" ref="model_emp_medical_request"/>-->
+            <field name="binding_model_id" eval="False"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+
+    <template id="template_employee_medical_doc">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+
+                 <t t-set="object" t-value="o.with_context(lang='ar')"/>
+                <t t-call="employees_request.employees_request_header">
+                     <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="1"/>
+                    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400&amp;display=swap" rel="stylesheet"/>
+
+
+
+                 <style>
+                   *{
+                   font-family: 'Noto Kufi Arabic', sans-serif;
+
+                   }
+
+
+                 </style>
+
+                            <div class="page" style="font-family: 'Noto Kufi Arabic', sans-serif;font-size:16px;">
+                                 <div class="mb-4 mt-3" style="text-align:right;">
+                                     <h5> الموارد البشرية</h5>
+                                     <h5><t t-out="object.request_date"/></h5>
+                                 </div>
+                                <center>
+                                    <h2> إحالة طبية </h2>
+                                </center>
+                                <br/> <br/>
+                                <div class="mb-4 mt-3" style="text-align:right;">
+                                    <h5>
+                                    الاسم:
+                                    <t t-out="object.employee_id.name"/>
+                                        <br/>
+                                        <br/>
+                                    </h5>
+                                    <h5>
+                                    سعادة مدير /
+                                     <t t-out="object.medical_authority"/>
+                                    المحترم
+                                        <br/>
+                                        <br/>
+                                    </h5>
+                                    <h5>
+                                    السلام عليكم ورحمة الله وبركاتة
+                                    <br/>
+                                    <br/>
+                                    </h5>
+                                    <h5 dir="rtl">
+                                        نحيل إليكم الموضح اسمه اعلاه وإفادتنا بتقرير طبي عن حالته الصحية
+                                        <br/>
+                                        <br/>
+                                        حيث انه انقطع عن العمل من تاريخ
+
+                                        ( <t t-out="object.date_from.strftime('%d-%m-%Y')"/>  م)
+                                        إلى تاريخ
+                                        ( <t t-out="object.date_to.strftime('%d-%m-%Y')"/>  م)
+                                        .
+                                    </h5>
+                                    <br/><br/> <br/><br/>
+                                    <center dir="rtl">
+                                    <h5>  ولكم جزيل الشكر،،  </h5>
+                                </center>
+                                 </div>
+                                 <br/><br/> <br/><br/>
+                        <div class="row" dir="rtl">
+                            <div class="col-6">
+                                <center>
+                                    <img t-if="res_company.print_signature" t-att-src="image_data_uri(res_company.print_signature)" alt="Logo" style="display:block;margin-top:3px; height:200px; width: 400px;"/>
+                                </center>
+
+
+                                    </div>
+                            <div class="col-6">
+                                <center>
+                                    <img t-if="res_company.print_seal" t-att-src="image_data_uri(res_company.print_seal)" alt="Logo" style="display:block;margin-top:3px; height:200px; width: 250px;"/>
+
+                                </center>
+                            </div>
+
+                            </div>
+
+
+
+<!--                                <div class="row">-->
+<!--                             <div class="col-6">-->
+<!--                                 &lt;!&ndash;                            <img t-if="res_company.logo" t-att-src="image_data_uri(res_company.logo)" alt="Logo" style="display:block;margin-top:3px; height:90px; width: 180px;"/>&ndash;&gt;-->
+
+<!--                                           <t t-set="hr_responsible_id" t-value="object.employee_id.sudo().contract_id.hr_responsible_id"/>-->
+<!--                                           <t t-set="hr_employee" t-value="env['hr.employee'].sudo().search([('user_id','=',hr_responsible_id.id)])"/>-->
+<!--                                        <center>-->
+<!--                                            <h5> مدير إدارة الموارد البشرية   </h5>-->
+<!--                                            <h5> <t t-out="hr_employee.parent_id.name"/>   </h5>-->
+<!--                                        </center>-->
+<!--                                    </div>-->
+<!--                            <div class="col-6">-->
+<!--                                <center>-->
+<!--                                    <h3> الختم  </h3>-->
+<!--                                </center>-->
+<!--                            </div>-->
+
+<!--                            </div>-->
+
+                        
+                    </div>
+                     </t>
+            </t>
+        </t>
+    </template>
+
+
+
+
+
+
+
+</odoo>

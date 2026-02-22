@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_emp_event_line_request_filter" model="ir.ui.view">
+            <field name="name">hr.event.line.search</field>
+            <field name="model">hr.event.line</field>
+            <field name="arch" type="xml">
+                <search string="Search Event Line Request">
+                    <field name="employee_id" string="Employee"/>
+                    <field name="notes"/>
+                    <group string="Group By">
+                        <filter name="group_employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                        <filter name="group_start_date" string="Start Date" context="{'group_by': 'start_date'}"/>
+                        <filter name="group_end_date" string="End Date" context="{'group_by': 'end_date'}"/>
+                        <filter string="Status" name="state" context="{'group_by': 'state'}"/>
+                        <filter name="job_id" string="Job" context="{'group_by':'job_id'}"/>
+                        <filter name="department_id" string="Department" context="{'group_by':'department_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="event_line_request_form" model="ir.ui.view">
+            <field name="name">hr.event.line.form</field>
+            <field name="model">hr.event.line</field>
+            <field name="arch" type="xml">
+                <form string="">
+                   <header>
+                        <button name="action_confirm" string="Confirm"  class="oe_highlight" states="draft" type="object"/>
+                        <button name="action_reject" string="Reject"  class="oe_highlight" states="draft" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,approve"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h4>
+                                <label for="event_request_id"/>
+                                <field name="event_request_id" attrs="{'readonly': [('state', '!=', 'draft')]}" options="{'no_create': 1}"/>
+                            </h4>
+                        </div>
+                        <group string="Event.Info" name="base_info">
+                            <group>
+                                <field name="event_employee_id"/>
+                                <field name="event_description"/>
+                            </group>
+                            <group>
+                                <field name="event_start_date"/>
+                                <field name="event_end_date"/>
+                                <field name="job_id" invisible="1"/>
+                                <field name="department_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <group string="Employee.Info" name="base_info">
+                            <group>
+                                <field name="employee_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="job_role" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="notes" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="start_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="end_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                 <field name="event_value" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+<!--                        <field name="message_follower_ids"/>-->
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="event_line_request_tree" model="ir.ui.view">
+            <field name="name">hr.event.line.tree</field>
+            <field name="model">hr.event.line</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="employee_id"/>
+                     <field name="job_role" />
+                     <field name="start_date"/>
+                     <field name="end_date"/>
+                     <field name="notes"/>
+                     <field name="event_value"/>
+                     <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_event_line_request" model="ir.actions.act_window">
+            <field name="name">Event Lines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.event.line</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

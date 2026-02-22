@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="ss_hr_leave_view_tree" model="ir.ui.view">
+            <field name="name">hr.leave</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='holiday_status_id']" position="after">
+                    <field name="create_date"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="leave_request_form" model="ir.ui.view">
+            <field name="name">leave.request.form</field>
+            <field name="model">leave.request</field>
+            <field name="arch" type="xml">
+                <form string="">
+                     <header>
+                        <button name="action_confirm" string="Confirm"  class="oe_highlight" states="draft" type="object"/>
+                        <button name="action_paid" string="Pay" groups="employees_request.emp_request_access_group_admin"  class="oe_highlight" states="confirm" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,paid" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+                         <div class="oe_button_box" name="button_box">
+                            <button groups="employees_request.emp_request_access_group_admin" class="oe_stat_button" name="button_journal_entries"
+                                    type="object"
+                                    icon="fa-bars">
+                             <field name="move_count" widget="statinfo" string="Journal Entries"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="emp_readonly" invisible="1"/>
+                            <field name="employee_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly': [('emp_readonly', '=', True)]}"/>
+                                <field name="joining_date"/>
+
+                            <label for="date_from"  string="Period"/>
+                            <div class="o_row">
+                                <span class="text-muted">From</span>
+                                <field name="date_from" class="oe_inline" widget="daterange" options="{'related_end_date': 'date_to'}"/>
+                                <span class="text-muted">To</span>
+                                <field name="date_to" class="oe_inline" widget="daterange" options="{'related_end_date': 'date_from'}"/>
+                            </div>
+
+                                <field name="return_date_lst_lev"/>
+                                <field name="period_of_leave_due"/>
+                                <field name="balance_leave_days"/>
+                                
+                            </group>
+                            <group>
+                                 <field name="request_date"/>
+                                <field name="basic_salary"/>
+                                <field name="housing"/>
+                                <field name="transportation"/>
+                                <field name="other_allowance"/>
+
+                                <field name="number_of_days_due"/>
+                                <field name="value_of_days_due"/>
+                                <field name="total_allowance_value"/>
+                                <field name="note"/>
+                            </group>
+                            <group invisible="1">
+                                <field name="pay_journal_id" attrs="{'invisible': [('state', '=', 'draft')],'required': [('state', '=', 'confirm')]}"/>
+                                <field name="debit_account_id"/>
+                                <field name="credit_account_id"/>
+                                <field name="journal_id" invisible="0" />
+                                <field name="company_id" invisible="1" />
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+<!--                        <field name="message_follower_ids"/>-->
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="leave_request_tree" model="ir.ui.view">
+            <field name="name">leave.request.tree</field>
+            <field name="model">leave.request</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="request_date"/>
+                    <field name="travel_ticket_value"/>
+                    <field name="value_of_days_due"/>
+                    <field name="total_allowance_value" sum="Total"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="action_leave_request" model="ir.actions.act_window">
+            <field name="name">Leave Allowance Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">leave.request</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

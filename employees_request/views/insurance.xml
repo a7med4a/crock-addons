@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_insurance_request_filter" model="ir.ui.view">
+            <field name="name">emp.insurance.request.search</field>
+            <field name="model">emp.insurance.request</field>
+            <field name="arch" type="xml">
+                <search string="Search Insurance Request">
+                    <field name="name"/>
+                    <field name="employee_id" string="Employee"/>
+                    <group string="Group By">
+                        <filter name="group_employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                        <filter name="group_request_date" string="Request Date" context="{'group_by': 'request_date'}"/>
+                        <filter string="Status" name="state" context="{'group_by': 'state'}"/>
+                         <filter name="job_id" string="Job" context="{'group_by':'job_id'}"/>
+                        <filter name="department_id" string="Department" context="{'group_by':'department_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="insurance_request_form" model="ir.ui.view">
+            <field name="name">emp.insurance.request.form</field>
+            <field name="model">emp.insurance.request</field>
+            <field name="arch" type="xml">
+                <form string="">
+                   <header>
+                        <button name="action_confirm_insh" string="Confirm"  class="oe_highlight" states="draft" type="object" groups="hr.group_hr_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+
+                        <group string="Emp.Info" name="base_info" col="4">
+                            <field name="emp_readonly" invisible="1"/>
+                            <field name="employee_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly': [('emp_readonly', '=', True)]}"/>
+                            <field name="request_date"/>
+                            <field name="identification_id"/>
+                            <field name="passport_id"/>
+                            <field name="job_id" invisible="1"/>
+                            <field name="department_id" invisible="1"/>
+                        </group>
+
+                        <group col="1" name="desc" string="Description">
+                              <field name="description" nolabel="1"/>
+                        </group>
+                             <field name="family_line_ids" force_save="1" nolabel="1" >
+                                    <tree>
+                                        <field name="fm_name_ar"/>
+                                        <field name="fm_name_en" />
+                                        <field name="employee_id"/>
+                                        <field name="identification_id"/>
+                                        <field name="relation_id"/>
+                                        <field name="birthdate"/>
+                                        <field name="gender_type"/>
+                                        <field name="add_date"/>
+                                        <field name="fm_phone"/>
+                                        <field name="related_attachment" filename="attachment_name"/>
+                                        <field name="related_attach"  invisible="1" widget="many2many_binary" required="1" />
+                                        <field name="insurance_request_id" invisible="1"/>
+                                        <field name="attachment_name" invisible="1"/>
+                                    </tree>
+                                 <form>
+                                     <group col="4">
+                                          <field name="fm_name_ar"/>
+                                        <field name="fm_name_en" />
+                                        <field name="employee_id" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="identification_id"/>
+                                        <field name="relation_id"/>
+                                        <field name="birthdate"/>
+                                        <field name="gender_type"/>
+                                        <field name="add_date"/>
+                                        <field name="fm_phone"/>
+                                          <field name="related_attachment" filename="attachment_name"/>
+                                        <field name="attachment_name"  invisible="1" widget="many2many_binary" required="1" />
+                                        <field name="related_attach"  invisible="1" widget="many2many_binary" required="1" />
+                                     </group>
+                                 </form>
+                                </field>
+                    </sheet>
+                    <div class="oe_chatter">
+<!--                        <field name="message_follower_ids"/>-->
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="insurance_request_tree" model="ir.ui.view">
+            <field name="name">emp.insurance.request.tree</field>
+            <field name="model">emp.insurance.request</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="request_date"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_insurance_request" model="ir.actions.act_window">
+            <field name="name">Insurance Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">emp.insurance.request</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <record id="action_insurance_relation" model="ir.actions.act_window">
+            <field name="name">Insurance Relations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">insurance.relation</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

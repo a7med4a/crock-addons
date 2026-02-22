@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="card_request_form" model="ir.ui.view">
+            <field name="name">emp.card.request.form</field>
+            <field name="model">emp.card.request</field>
+            <field name="arch" type="xml">
+                <form string="">
+                     <header>
+                        <button name="action_confirm" string="Confirm"  class="oe_highlight" states="draft" type="object"/>
+                        <button name="action_reprint" string="Print"  class="oe_highlight" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+
+                        <div class="oe_title">
+                             <label for="name"/>
+                            <h1>
+                                <field name="name" readonly="1" placeholder="New#00001 ... "/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                 <field name="emp_readonly" invisible="1"/>
+                                <field name="employee_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly': [('emp_readonly', '=', True)]}" placeholder="Employee Name ... "/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="request_date"/>
+                                <field name="request_num"/>
+                                <field name="description" string="Notes"/>
+                            </group>
+                            <group>
+                                <field name="job_title"/>
+                                <field name="employee_code"/>
+                                <field name="request_type" />
+                            </group>
+                            <group>
+
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+<!--                        <field name="message_follower_ids"/>-->
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="card_request_tree" model="ir.ui.view">
+            <field name="name">emp.card.request.tree</field>
+            <field name="model">emp.card.request</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="request_date"/>
+                    <field name="request_type" invisible="1"/>
+                    <field name="description"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_card_request" model="ir.actions.act_window">
+            <field name="name">Card Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">emp.card.request</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

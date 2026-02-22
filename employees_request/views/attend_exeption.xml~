@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ss_view_attendance_tree" model="ir.ui.view">
+            <field name="name">hr.attendance</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="inside">
+                    <header>
+                        <button name="exception_request" type="object" string="Exception Request" class="btn-primary"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="attend_exeption_request_form" model="ir.ui.view">
+            <field name="name">attendance.exception.request.form</field>
+            <field name="model">attendance.exception.request</field>
+            <field name="arch" type="xml">
+                <form string="">
+                   <header>
+                        <button name="action_confirm" string="Confirm"  class="oe_highlight" states="draft" type="object" groups="hr.group_hr_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+<!--                        <div class="oe_title">-->
+<!--                            <h1><field name="name" class="oe_inline"/></h1>-->
+<!--                        </div>-->
+                        <group string="Emp.Info" name="base_info" col="4">
+                            <field name="employee_id"/>
+                            <field name="request_date"/>
+                        </group>
+                        <group col="1" name="desc" string="Description">
+                              <field name="description" nolabel="1"/>
+                        </group>
+                         <notebook>
+                            <page string="Exception Attendance Lines">
+                                <field name="attendance_lines" force_save="1" readonly="1"/>
+                            </page>
+                         </notebook>
+
+
+
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="attend_exeption_request_tree" model="ir.ui.view">
+            <field name="name">attendance.exception.request.tree</field>
+            <field name="model">attendance.exception.request</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="request_date"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_attend_exeption_request" model="ir.actions.act_window">
+            <field name="name">Attendance Exception Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">attendance.exception.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

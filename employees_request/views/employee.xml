@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="emp_hr_permission_form" model="ir.ui.view">
+            <field name="name">hr.permission.form</field>
+            <field name="model">hr.permission</field>
+            <field name="inherit_id" ref="jes_hr_leave.hr_permission_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_id']" position="replace">
+                    <field name="emp_readonly" invisible="1"/>
+                    <field name="employee_id" options="{'no_create': True, 'no_open': True}"
+                           attrs="{'readonly': [('emp_readonly', '=', True)]}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_employee_dashboard_form" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="jeraisy_hrms.jes_view_employee_dashboard_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='personal_information']" position="after">
+                    <page string="Other Info">
+                        <group col="4">
+                            <field readonly="1" name="job_num"/>
+                            <field readonly="1" name="joining_date"/>
+                            <field readonly="1" name="return_date_lst_lev"/>
+                            <field readonly="1" name="balance"/>
+                            <field readonly="1" name="balance_leave_days"/>
+                            <field readonly="1" name="travel_ticket_value"/>
+                            <field readonly="1" name="loan_status"/>
+                            <field readonly="1" name="date_last_bouns_hous"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <record id="hr_view_employee_form" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Family Insurance" invisible="1">
+                        <field name="family_line_ids" force_save="1">
+                            <tree editable="bottom">
+                                <field name="fm_name_ar"/>
+                                <field name="fm_name_en"/>
+                                <field name="identification_id"/>
+                                <field name="employee_id" readonly="1"/>
+                                <field name="relation_id"/>
+                                <field name="birthdate"/>
+                                <field name="gender_type"/>
+                                <field name="add_date"/>
+                                <field name="fm_phone"/>
+                                <field name="related_attach"/>
+                                <field name="parent_employee_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Other Info">
+                        <group col="4">
+                            <field name="job_num"/>
+                            <field name="joining_date"/>
+                            <field name="return_date_lst_lev"/>
+                            <field name="balance"/>
+                            <field name="balance_leave_days"/>
+                            <field name="travel_ticket_value"/>
+                            <field name="loan_status"/>
+                            <field name="date_last_bouns_hous"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='study_field']" position="after">
+                    <field name="study_field_id"/>
+                    <field name="study_date"/>
+                </xpath>
+                <xpath expr="//field[@name='study_field']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="due_hr_salary_rule_form" model="ir.ui.view">
+            <field name="name">hr.salary.rule</field>
+            <field name="model">hr.salary.rule</field>
+            <field name="inherit_id" ref="hr_payroll.hr_salary_rule_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='appears_on_payslip']" position="after">
+                    <field name="due_salary"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="level_view_hr_appraisal_form" model="ir.ui.view">
+            <field name="name">hr.appraisal</field>
+            <field name="model">hr.appraisal</field>
+            <field name="inherit_id" ref="hr_appraisal.view_hr_appraisal_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_feedback_published']" position="after">
+                    <div class="row">
+                        <span>Appraisal Level</span>
+                        <field name="appraisal_level" nolabel="1" class="pe-3" widget="selection_badge"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+
+    <template id="employees_request_header">
+
+
+            <div class="header" style="font-size:15px;font-weight: bold;border: 0px solid white;">
+                <table class="text-right" width="100%" style="border: 0px solid white;" dir="rtl">
+                    <tr>
+                        <td width="35%">
+                            <img t-if="res_company.logo" t-att-src="image_data_uri(res_company.logo)" alt="Logo" style="display:block;margin-top:3px; height:80px; width: 300px;" />
+<!--                            <img t-if="res_company.logo" t-att-src="image_data_uri(res_company.logo)" alt="Logo" style="display:block;margin-top:3px; height:90px; width: 180px;"/>-->
+
+                        </td>
+                        <td width="65%"> </td>
+
+                    </tr>
+                </table>
+
+
+                <br/>
+                <div width="100%">
+                    <center>
+
+                        <hr style="height:2px;border:none;color:#044dae ;background-color: #044dae;margin-top:0px;margin-bottom:1px"/>
+                    </center>
+                </div>
+
+
+            </div>
+            <div class="article" style="font-size:10px;font-weight: bold;">
+                <t t-raw="0"/>
+                <div t-attf-class="footer o_standard_footer o_company_#{res_company.id}_layout" style="font-family: 'Noto Kufi Arabic', sans-serif;">
+                    <div class="text-center" style="border-top: 1px solid black;">
+                        <ul class="list-inline mb4">
+
+                            <li t-if="res_company.phone" class="list-inline-item d-inline">
+                                <span class="o_force_ltr" t-field="res_company.phone"/>
+                            </li>
+                            <li t-if="res_company.email" class="list-inline-item d-inline">
+                                <span t-field="res_company.email"/>
+                            </li>
+                            <li t-if="res_company.website" class="list-inline-item d-inline">
+                                <span t-field="res_company.website"/>
+                            </li>
+                            <li t-if="res_company.vat" class="list-inline-item d-inline"><t
+                                    t-esc="res_company.country_id.vat_label or 'Tax ID'"/>:
+                                <span t-field="res_company.vat"/>
+                            </li>
+                        </ul>
+
+                        <div t-if="report_type == 'pdf'" class="text-muted">
+                            <div class="row">
+                                <div class="col-6 text-right" dir="rtl">
+                                    صفحة:
+                                    <span class="page"/>
+                                    /
+                                    <span class="topage"/>
+                                </div>
+
+                                 <div class="col-6 text-left pl-0" dir="rtl">
+                                    تاريخ الطباعة:
+                                    <t t-esc="datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </template>
+    <record id="letter_paper_format" model='report.paperformat'>
+            <field name="name">PDF sales Format</field>
+            <field name="format">custom</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">35</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+      <record id="action_print_employee_letter" model="ir.actions.report">
+            <field name="name">Print Employee Letter</field>
+            <field name="model">letter.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">employees_request.template_employee_letter_doc</field>
+            <field name="report_file">employees_request.template_employee_letter_doc</field>
+            <field name="paperformat_id" ref="employees_request.letter_paper_format"/>
+            <field name="binding_model_id" eval="False"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    <template id="template_employee_letter_doc">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                 <t t-set="object" t-value="o.with_context(lang='en_US')"/>
+            <t t-foreach="range(o.no_copy)" t-as="n">
+                <t t-call="employees_request.employees_request_header">
+                     <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="1"/>
+                    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400&amp;display=swap" rel="stylesheet"/>
+                 <style>
+                   *{
+                   font-family: 'Noto Kufi Arabic', sans-serif;
+
+                   }
+                 </style>
+
+                            <div class="page" style="font-family: 'Noto Kufi Arabic', sans-serif;font-size:15px;font-weight: bold;">
+                                <t  t-if="object.letter_type == 'with_salary'">
+                                    <t t-set="lettter" t-value="'شهادة تعريف بالراتب'"/>
+                                </t>
+                                 <t  t-if="object.letter_type != 'with_salary'">
+                                    <t t-set="lettter" t-value="'شهادة تعريف للموظف'"/>
+                                </t>
+                                <center>
+                                    <h2> <t t-out="lettter"/></h2>
+                                    <h2> Salary Statement</h2>
+                                </center>
+                                <br/>
+                         <table border="0" cellpadding="0" cellspacing="0" width="100%" dir="ltr"
+                           style="background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                        <tr style="font-size: 15px;">
+                            <td width="45%" valign="middle" dir="ltr" align="left" style="font-size: 14px;">
+                                <span>
+                                    To:
+                                    <t t-out="object.destination"/>
+                                    <br/>
+                                    We would like to inform you that the person referred herein is working with us according to the following information:
+                                </span>
+                            </td>
+                            <td width="10%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+                                    إلى:
+                                    <t t-out="object.destination"/>
+                                      <br/>
+                                    نفيدكم بأن المذكور أدناه يعمل لدينا حسب المعلومات الآتية:
+                                </span>
+                            </td>
+                        </tr>
+                             <tr style="font-size: 16px;">
+                                    <td colspan="3" valign="middle" height="20" align="center"> </td>
+                              </tr>
+
+                        <tr style="font-size: 15px;">
+                            <td width="45%" valign="middle" dir="ltr" align="left" style="font-size: 14px;">
+                                <span>
+                                    Name:
+                                    <t t-out="object.employee_id.sudo().get_employee_name('en')"/>
+                                </span>
+                            </td>
+                            <td width="10%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+                                    الاسم:
+                                    <t t-out="object.employee_id.sudo().get_employee_name('ar')"/>
+                                </span>
+                            </td>
+                        </tr>
+
+                         <tr style="font-size: 15px;">
+                            <td width="45%" valign="middle" dir="ltr" align="left" style="font-size: 14px;">
+                                <span>
+                                    Nationality:
+                                    <t t-out="object.employee_id.sudo().country_id.name"/>
+                                </span>
+                            </td>
+                             <td width="10%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+                                    الجنسية:
+                                    <t t-out="object.employee_id.sudo().country_id.with_context(lang='ar_001').name"/>
+                                </span>
+                            </td>
+                        </tr>
+                         <tr style="font-size: 15px;">
+                            <td width="45%" valign="middle" dir="ltr" align="left" style="font-size: 14px;">
+                                <span>
+                                    National Id Number or iqama:
+                                    <t t-out="object.identification_id"/>
+                                </span>
+                            </td>
+                             <td width="10%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+                                    رقم الهوية الوطنية:
+                                    <t t-out="object.identification_id"/>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr style="font-size: 15px;">
+                            <td width="45%" valign="middle" dir="ltr" align="left" style="font-size: 14px;">
+                                <span>
+                                    Employee Code:
+                                    <t t-out="object.employee_id.sudo().pin"/>
+                                </span>
+                            </td>
+                            <td width="10%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+                                    الرقم الوظيفي:
+                                    <t t-out="object.employee_id.sudo().pin"/>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr style="font-size: 15px;">
+                            <td width="45%" valign="middle" dir="ltr" align="left" style="font-size: 14px;">
+                                <span>
+                                    Job title:
+                                    <t t-out="object.employee_id.sudo().job_title"/>
+                                </span>
+                            </td>
+                            <td width="10%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" >
+                                <span>
+                                    المسمى الوظيفي:
+                                    <t t-out="object.employee_id.sudo().job_title"/>
+                                </span>
+                            </td>
+                        </tr>
+                         <tr style="font-size: 15px;" t-if="object.letter_type == 'with_salary'">
+                                <t t-set="base" t-value="object.employee_id.sudo().contract_id.wage"/>
+                                <t t-set="transport" t-value="object.employee_id.sudo().contract_id.transportation"/>
+                                <t t-set="house" t-value="object.employee_id.sudo().contract_id.housing"/>
+                                <t t-set="total" t-value="base + transport + house"/>
+                            <td width="45%" valign="middle" dir="ltr" align="left" style="font-size: 14px;">
+
+                                <span>
+
+                                    Receives a monthly salary of (<t t-out="int(total)"/>) as per below:
+                                </span> <br/>
+
+                                Basic salary:
+                                <span>
+                                    <t t-out="base"/> SAR 
+
+                                </span> <br/>
+                                Housing allowance:
+                                <span>
+                                    <t t-out="house"/> SAR 
+                                </span> <br/>
+                                Transportation allowance:
+                                <span>
+                                  <t t-out="transport"/> SAR 
+                                </span> <br/>
+                                Total:
+                                <span>
+                                    <t t-out="int(total)"/> SAR
+                                </span>
+                            </td>
+                            <td width="10%" valign="middle" align="center"> </td>
+                            <td width="45%" valign="middle" align="right" dir="rtl">
+
+                                <span>
+                                    ويتقاضى راتبا شهريا قدره (<t t-out="int(total)"/>) على النحو الآتي:
+
+                                </span> <br/>
+                                الراتب الاساسي:
+                                <span>
+                                    <t t-out="base"/> ريال  
+
+                                </span> <br/>
+                                بدل سكن:
+                                <span>
+                                    <t t-out="house"/> ريال  
+                                </span> <br/>
+                                بدل النقل:
+                                <span>
+                                  <t t-out="transport"/>  ريال  
+                                </span> <br/>
+                                الإجمالي:
+                                <span>
+                                    <t t-out="int(total)"/>     ريال
+                                </span>
+                            </td>
+                        </tr>
+                          <tr style="font-size: 16px;">
+                                    <td colspan="3" valign="middle" height="20" align="center"> </td>
+                              </tr>
+                             <tr style="font-size: 15px;">
+                              <td width="45%" valign="middle" dir="ltr" align="left" style="font-size: 14px;">
+                                <span>
+                                    This statement has been issued upon the request of the employee mentioned above
+                                    to be submitted to (<t t-out="object.destination"/>), without the Center bearing any legal liability.
+                                </span>
+                            </td>
+                              <td width="10%" valign="middle" align="center"> </td>
+                              <td width="45%" valign="middle" align="right" dir="rtl">
+                                <span>
+                                    حررت هذه الشهادة للمذكور بناء على طلبه
+                                    لتقديمها
+                                    ل(<t t-out="object.destination"/>)
+                                     وذلك دون أن يكون على المركز ادنى مسؤولية .
+                                </span>
+                            </td>
+                        </tr>
+
+                    </table>
+                        <br/>
+                        <br/>
+                        <br/>
+                         <div class="row" dir="rtl">
+                            <div class="col-6">
+                                <center>
+                                    <img t-if="res_company.print_signature" t-att-src="image_data_uri(res_company.print_signature)" alt="Logo" style="display:block;margin-top:3px; height:200px; width: 400px;"/>
+                                </center>
+
+
+                                    </div>
+                            <div class="col-6">
+                                <center>
+                                    <img t-if="res_company.print_seal" t-att-src="image_data_uri(res_company.print_seal)" alt="Logo" style="display:block;margin-top:3px; height:200px; width: 250px;"/>
+
+                                </center>
+                            </div>
+
+                            </div>
+                        
+                    </div>
+                     </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+
+
+
+
+
+</odoo>

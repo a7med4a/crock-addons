@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+
+    <template id="employees_request_header">
+
+
+            <div class="header" style="font-size:15px;font-weight: bold;border: 0px solid white;">
+                 <center>
+                <table class="text-right" width="80%" style="border: 0px solid white;" dir="rtl">
+                    <tr>
+                        <td width="100%">
+                            <img t-if="res_company.logo" t-att-src="image_data_uri(res_company.logo)" alt="Logo"  />
+<!--                            <img t-if="res_company.logo" t-att-src="image_data_uri(res_company.logo)" alt="Logo" style="display:block;margin-top:3px; height:90px; width: 180px;"/>-->
+
+                        </td>
+                    </tr>
+                </table>
+                 </center>
+            </div>
+            <div class="article" style="font-size:10px;font-weight: bold;">
+                <t t-raw="0"/>
+            </div>
+        </template>
+    <record id="card_paper_format" model='report.paperformat'>
+        <field name="default" eval="True" />
+        <field name="name">Print Card PF</field>
+        <field name="format">custom</field>
+        <field name="page_height">150</field>
+        <field name="page_width">100</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">2</field>
+        <field name="margin_left">1</field>
+        <field name="margin_right">1</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">23</field>
+        <field name="dpi">90</field>
+        </record>
+
+
+      <record id="action_print_employee_card" model="ir.actions.report">
+            <field name="name">Print Employee Card</field>
+            <field name="model">emp.card.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">employees_request.template_employee_card_doc</field>
+            <field name="report_file">employees_request.template_employee_card_doc</field>
+            <field name="paperformat_id" ref="employees_request.card_paper_format"/>
+            <field name="binding_model_id" eval="False"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    <template id="template_employee_card_doc">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                 <t t-set="object" t-value="o.with_context(lang='en_US')"/>
+                <t t-call="employees_request.employees_request_header">
+                     <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="1"/>
+                    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400&amp;display=swap" rel="stylesheet"/>
+                 <style>
+                   *{
+                   font-family: 'Noto Kufi Arabic', sans-serif;
+
+                   }
+
+
+                 </style>
+                    <div class="page" style="font-family: 'Noto Kufi Arabic', sans-serif;font-size:16px;font-weight: bold;">
+                        <center>
+                        <img t-if="o.employee_id.image_1024" t-att-src="image_data_uri(o.employee_id.image_1024)"  style="display:block;margin-top:3px; height:150px; width: 160px;" />
+                        <br/>
+                            <span t-esc="o.employee_id.sudo().get_employee_name('ar')"/>
+
+                        </center>
+                        <br/>
+                        <center>
+                             <span style="font-size:14px;" t-esc="o.employee_id.sudo().job_id.with_context(lang='ar_001').name"/>
+                        </center>
+                        <br/>
+                        <br/>
+                        <center>
+                              <span t-esc="o.employee_id.sudo().get_employee_name('en')"/>
+                        </center>
+                        <br/>
+                        <center>
+                              <span style="font-size:14px;" t-esc="o.employee_id.sudo().job_id.with_context(lang='en_US').name"/>
+                        </center>
+                        <br/>
+                        <br/>
+                        <center>
+
+                              <div style="border-radius: 15px 15px 15px 15px; border:3px solid green;width:80%;font-size:16px;font-weight: bold;" dir="rtl" >
+                            <table width="100%">
+                                 <tr>
+
+                                     <td class="text-center" height="50" width="50%" style="border:0px solid white;text-align:center;vertical-align:middle;">الكود الوظيفي</td>
+                                     <td class="text-center" height="50" width="50%" style="border:0px solid white;text-align:center;vertical-align:middle;"> <span t-esc="o.employee_id.sudo().pin"/></td>
+<!--                                     <th class="text-center" height="35" width="50%" style="font-size:18px;font-weight: bold;text-align:center;vertical-align:middle;border-radius: 10px 10px 10px 10px; border:2px solid green;"><span t-esc="o.employee_id.sudo().pin"/></th>-->
+                                 </tr>
+                            </table>
+                              </div>
+                        </center>
+
+
+
+                        <p style="page-break-before:always;"> </p>
+
+
+                        
+                        <br/>
+                        <center>
+
+                              <div style="border-radius: 15px 15px 15px 15px; border:3px solid green;width:80%;font-size:16px;font-weight: bold;" dir="rtl" >
+                            <table width="100%">
+                                 <tr>
+
+                                     <td class="text-center" height="50" width="50%" style="border:0px solid white;text-align:center;vertical-align:middle;">الكود الوظيفي</td>
+                                     <td class="text-center" height="50" width="50%" style="border:0px solid white;text-align:center;vertical-align:middle;"> <span t-esc="o.employee_id.sudo().pin"/></td>
+<!--                                     <th class="text-center" height="35" width="50%" style="font-size:18px;font-weight: bold;text-align:center;vertical-align:middle;border-radius: 10px 10px 10px 10px; border:2px solid green;"><span t-esc="o.employee_id.sudo().pin"/></th>-->
+                                 </tr>
+                            </table>
+                              </div>
+                        </center>
+                    </div>
+                     </t>
+                </t>
+        </t>
+    </template>
+
+
+</odoo>

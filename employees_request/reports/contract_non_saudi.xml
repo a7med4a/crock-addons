@@ -1,0 +1,1926 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="action_print_emp_contract_non_saudi" model="ir.actions.report">
+        <field name="name"> طباعة عقد الموظف الغير السعودي المتعاقد</field>
+        <field name="model">hr.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">employees_request.template_emp_contract_non_saudi_doc</field>
+        <field name="report_file">employees_request.template_emp_contract_non_saudi_doc</field>
+        <field name="print_report_name">'Emp Contract- %s' % (object.employee_id.name)</field>
+        <field name="paperformat_id" ref="employees_request.letter_paper_format"/>
+        <field name="binding_model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="template_emp_contract_non_saudi_doc">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="object" t-value="o.with_context(lang='en_US')"/>
+                <t t-call="employees_request.employees_request_header">
+
+                    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="1"/>
+                    <link href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet"/>
+                    <style>
+                        *{
+                        font-family: 'Droid Arabic Kufi', serif;
+                        }
+                    </style>
+                    <div class="page" style="font-size:14px;">
+
+                        <p class="MsoNormal" align="center" dir="RTL" style="margin-top:0in;margin-right:
+0in;margin-bottom:0in;margin-left:-7.1pt;text-align:center;line-height:normal">
+                            <span dir="RTL"></span>
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <u>
+                                    <span lang="AR-SA" style="font-size:15.0pt;font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;text-shadow:auto;mso-fareast-language:
+AR-SA">
+                                        <span dir="RTL"></span>
+                                        <span dir="RTL"></span>(عقد عمل غير سعودي)
+
+                                    </span>
+                                </u>
+                            </b>
+                        </p>
+                        <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:-7.1pt;
+margin-bottom:0in;margin-left:-7.1pt;text-align:justify">
+                            <b>
+                                <span lang="AR-SA" style="font-size:12.0pt;line-height:107%;font-family:Arial,sans-serif;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-bidi">
+                                    <span style="mso-spacerun:yes"></span>
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">بعون الله تعالى،
+                                    وفي يوم
+                                    <span t-field="o.day_ar"/>
+                                    الموافق:
+                                </span>
+                            </b>
+                            <a style="mso-comment-reference:
+AHA_1;mso-comment-date:20230717T1353">
+                                <b style="mso-ansi-font-weight:normal">
+                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;mso-fareast-language:AR-SA">
+                                        <span t-field="o.date_start"/>
+                                    </span>
+                                </b>
+                            </a>
+                            <span class="MsoCommentReference">
+                                <span lang="AR-SA" style="font-size:8.0pt;line-height:
+107%;font-family:Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+mso-bidi-theme-font:minor-bidi">
+                                    <span dir="LTR" style="mso-special-character:comment"></span>
+                                </span>
+                            </span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">.
+                                    <span style="mso-spacerun:yes"></span>تم الاتفاق والتعاقد بين كل من:
+                                </span>
+                            </b>
+                            <b>
+                                <span lang="AR-SA" style="font-size:12.0pt;line-height:107%;font-family:Arial,sans-serif;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-bidi">
+
+                                </span>
+                            </b>
+                        </p>
+                        <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:-7.1pt;
+margin-bottom:0in;margin-left:-7.1pt;text-align:justify;text-justify:kashida;
+text-kashida:10%;text-indent:7.05pt;line-height:115%">
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    <span style="mso-spacerun:yes"></span>أولاً: مركز الملك عبد العزيز للحوار الوطني
+                                    ويمثله مساعد
+                                    <a style="mso-comment-reference:AHA_2;mso-comment-date:20230717T1357">الأمين
+                                        العام للخدمات المساندة،
+                                    </a>
+                                </span>
+                            </b>
+                            <span class="MsoCommentReference">
+                                <span lang="AR-SA" style="font-size:8.0pt;line-height:115%;font-family:Arial,sans-serif;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-bidi">
+                                    <span dir="LTR" style="mso-special-character:comment"></span>
+                                </span>
+                            </span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    وعنوانه الدائم الرياض – الدائري الشمالي
+
+                                    <span style="mso-spacerun:yes"></span>
+                                    <span style="mso-spacerun:yes"></span>ص . ب ( 89866 ) الرياض ( 11692 ) ويشار إليه
+                                    بالطرف الأول أو المركز .
+
+                                </span>
+                            </b>
+                        </p>
+                        <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:-7.05pt;
+margin-bottom:0in;margin-left:-7.1pt;text-indent:7.0pt;line-height:115%">
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    <span style="mso-spacerun:yes"></span>ثانياً:
+                                    <a style="mso-comment-reference:AHA_3;
+mso-comment-date:20230717T1354">
+                                        <t t-if="o.employee_id.gender == 'male'">
+                                            السيد
+                                        </t>
+                                        <t t-if="o.employee_id.gender == 'female'">
+                                            السيدة
+                                        </t>
+                                    </a>
+                                </span>
+                            </b>
+                            <span class="MsoCommentReference">
+                                <span lang="AR-SA" style="font-size:8.0pt;line-height:
+115%;font-family:Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+mso-bidi-theme-font:minor-bidi">
+                                    <span dir="LTR" style="mso-special-character:comment"></span>
+                                </span>
+                            </span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">:
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;mso-fareast-language:AR-SA">
+                                    <span t-field="o.employee_id.name"/>
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    <a style="mso-comment-reference:AHA_4;mso-comment-date:20230717T1355">
+                                        <t t-if="o.employee_id.gender == 'female'">
+                                            <span t-field="o.employee_id.country_id.name"/>
+                                            وجنسيتها :
+                                        </t>
+                                        <t t-if="o.employee_id.gender == 'male'">
+                                            <span t-field="o.employee_id.country_id.name"/>وجنسيته :
+                                        </t>
+                                    </a>
+                                </span>
+                            </b>
+                            <span class="MsoCommentReference">
+                                <span lang="AR-SA" style="font-size:8.0pt;line-height:
+115%;font-family:Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+mso-bidi-theme-font:minor-bidi">
+                                    <span dir="LTR" style="mso-special-character:comment"></span>
+                                </span>
+                            </span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    -حسب هوية مقيم رقم:
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;mso-fareast-language:AR-SA">
+                                    <span t-field="o.employee_id.identification_id"/>
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+
+                                </span>
+                            </b>
+                        </p>
+                        <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:14.15pt;
+margin-bottom:0in;margin-left:-7.1pt;text-indent:-14.1pt;line-height:115%">
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    <span style="mso-spacerun:yes"></span>
+                                    <span style="mso-spacerun:yes"></span>
+                                </span>
+                            </b>
+                            <a style="mso-comment-reference:AHA_5;mso-comment-date:20230717T1356">
+                                <b>
+                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light">و
+                                        <t t-if="o.employee_id.gender == 'female'">
+                                            عنوانها
+                                        </t>
+                                        <t t-if="o.employee_id.gender == 'male'">
+                                            عنوانه
+                                        </t>
+                                    </span>
+                                </b>
+                            </a>
+                            <span class="MsoCommentReference">
+                                <span lang="AR-SA" style="font-size:8.0pt;line-height:
+115%;font-family:Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+mso-bidi-theme-font:minor-bidi">
+                                    <span dir="LTR" style="mso-special-character:comment"></span>
+                                </span>
+                            </span>
+                            <b>
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light">:</span>
+                            </b>
+                            <b>
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Times New Roman;">
+                                    <span t-field="o.employee_id.country_id.name"/>
+                                </span>
+                            </b>
+                            <b>
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Times New Roman">جوال:
+                                    <span style="">
+                                        <span t-field="o.employee_id.mobile_phone"/>
+                                    </span>
+                                    <!--				<span style="mso-spacerun:yes"></span>-->
+                                    <!--				<span style="">– ......... - ............</span>-->
+                                </span>
+                            </b>
+                            <br/>
+                            <!--		<b>-->
+                            <!--			<span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light">-->
+                            <!--				<br/>-->
+                            <!--					<span style="mso-spacerun:yes"> </span>جوال:-->
+                            <!--					<span style=""><span t-field="o.employee_id.mobile_phone"/></span>-->
+                            <!--				</span>-->
+                            <!--			</b>-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    <span style="mso-spacerun:yes"></span>بريد إلكتروني شخصي/
+                                </span>
+                            </b>
+                            <span class="MsoHyperlink">
+                                <span lang="AR-SA" style="font-size:12.0pt;line-height:115%;
+font-family:Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+mso-bidi-theme-font:minor-bidi">
+                                    <span t-field="o.employee_id.work_email"/>
+                                </span>
+                            </span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-size:12.0pt;
+line-height:115%;font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA">
+                                    <br/>
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:Calibri;
+color:black;mso-fareast-language:AR-SA">
+                                    <span style="mso-spacerun:yes">
+                                    </span>
+                                    <span style="mso-spacerun:yes"></span>ويشار
+                                    <a style="mso-comment-reference:
+AHA_6;mso-comment-date:20230717T1356">
+                                        <t t-if="o.employee_id.gender == 'female'">
+                                            إليها في هذا العقد
+                                        </t>
+                                        <t t-if="o.employee_id.gender == 'male'">
+                                            إليه في هذا العقد
+                                        </t>
+                                    </a>
+                                </span>
+                            </b>
+                            <span class="MsoCommentReference">
+                                <span lang="AR-SA" style="font-size:8.0pt;line-height:
+115%;font-family:Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+mso-bidi-theme-font:minor-bidi">
+                                    <span dir="LTR" style="mso-special-character:comment"></span>
+                                </span>
+                            </span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">بالطرف
+                                    الثاني .
+
+                                </span>
+                            </b>
+                        </p>
+                        <p class="MsoHeader" align="center" dir="RTL" style="margin-left:-7.1pt;text-align:
+center;mso-line-height-alt:.8pt">
+                            <b style="mso-ansi-font-weight:normal">
+                                <u>
+                                    <span lang="AR-SA" style="font-size:12.0pt;font-family:Frutiger LT Arabic 45 Light;
+mso-effects-shadow-color:black;mso-effects-shadow-alpha:40.0%;
+mso-effects-shadow-dpiradius:4.0pt;mso-effects-shadow-dpidistance:3.0pt;
+mso-effects-shadow-angledirection:2700000;mso-effects-shadow-align:topleft;
+mso-effects-shadow-pctsx:100.0%;mso-effects-shadow-pctsy:100.0%;mso-effects-shadow-anglekx:
+0;mso-effects-shadow-angleky:0">اتفق الطرفان وهما بكامل الأهلية المعتبرة شرعاً
+                                        ونظاماً على ما يلي:
+
+                                    </span>
+                                </u>
+                            </b>
+                        </p>
+                        <p class="MsoListParagraphCxSpFirst" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:0in;margin-left:-7.1pt;mso-add-space:auto;text-align:justify;
+text-indent:-.25in;mso-line-height-alt:.8pt;mso-list:l9 level1 lfo7">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">1-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">يعمل الطرف
+                                    الثاني لدى المركز في الرياض أو أحد فروعه داخل المملكة على وظيفة
+                                </span>
+                            </b>
+                            <a style="mso-comment-reference:AHA_7;mso-comment-date:20230717T1359">
+                                <b>
+                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Times New Roman;">
+                                        <span t-field="o.employee_id.job_id.name"/>
+                                    </span>
+                                </b>
+                            </a>
+                            <span style="mso-comment-continuation:7">
+                                <b style="mso-ansi-font-weight:normal">
+                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA"></span>
+                                </b>
+                            </span>
+                            <span class="MsoCommentReference">
+                                <span lang="AR-SA" style="font-size:8.0pt;font-family:
+Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+minor-bidi">
+                                    <span dir="LTR" style="mso-special-character:comment"></span>
+                                </span>
+                            </span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">بالدرجة
+                                    (
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:Calibri;
+mso-fareast-language:AR-SA">
+                                    <span t-field="o.employee_id.job_id.job_level"/>
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;mso-fareast-language:AR-SA">)
+                                    <span style="color:black">ويقوم بجميع المهام المنصوص عليها في توصيف وتصنيف وظائف
+                                        المركز
+                                        مع التزامه بأداء أية أعمال أخرى يكلف بها، ولا تختلف اختلافاً جوهرياً عن الوظيفة
+                                        المتفق عليها .
+                                    </span>
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA;
+mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-right:10.9pt;
+mso-add-space:auto;text-align:justify;text-indent:-.25in;mso-list:l9 level1 lfo7">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">2-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">التقويم
+                                    الميلادي هو التقويم المعتمد في هذا العقد، و يسري هذا العقد من تاريخ
+                                    <span t-field="o.date_start"/>
+                                    وذلك لمدة سنة ميلادية .
+
+                                </span>
+                            </b>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-right:10.9pt;
+mso-add-space:auto;text-align:justify;text-indent:-.25in;mso-list:l9 level1 lfo7">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">3-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    يجدد هذا العقد سنوياً بعد موافقة صاحب الصلاحية ويشعر الطرف الثاني بالتجديد قبل نهاية
+                                    العقد بفترة كافية .
+                                </span>
+                            </b>
+                        </p>
+
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:0in;margin-left:-7.1pt;mso-add-space:auto;text-align:justify;
+text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l9 level1 lfo7">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">4-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    يدفع المركز للطرف الثاني أجراً شهرياً قدره: (
+                                </span>
+                            </b>
+                            <a style="mso-comment-reference:AHA_8;mso-comment-date:20230717T1400">
+                                <b style="mso-ansi-font-weight:normal">
+                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;mso-fareast-language:AR-SA">
+                                        <span t-field="o.employee_id.contract_id.wage"/>
+                                    </span>
+                                </b>
+                            </a>
+                            <span style="mso-comment-continuation:8">
+                                <b style="mso-ansi-font-weight:normal">
+                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA"></span>
+                                </b>
+                            </span>
+                            <span class="MsoCommentReference">
+                                <span lang="AR-SA" style="font-size:8.0pt;font-family:
+Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+minor-bidi">
+                                    <span dir="LTR" style="mso-special-character:comment"></span>
+                                </span>
+                            </span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">)
+                                    <span t-esc="o.amount_text_arabic(o.employee_id.contract_id.wage)"/>
+                                    تضاف إليه المزايا التالية:
+
+                                </span>
+                            </b>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-indent:
+-21.25pt;mso-text-indent-alt:-7.1pt;line-height:115%;mso-list:l5 level1 lfo1">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>أ‌-
+                                        <span style="font:7.0pt Times New Roman"></span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:Calibri;
+color:black;mso-fareast-language:AR-SA">بدل نقل شهري قدره: (
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;mso-fareast-language:AR-SA">
+                                    <span t-esc="o.employee_id.contract_id.transportation"/>
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;mso-fareast-language:AR-SA">)
+                                    <span style="color:black">
+                                        <a name="_Hlk119502657"></a>
+                                        <a style="mso-comment-reference:
+AHA_9;mso-comment-date:20230717T1401">
+                                            <span style="mso-bookmark:_Hlk119502657">
+                                                <span t-esc="o.amount_text_arabic(o.employee_id.contract_id.transportation)"/>
+                                            </span>
+                                        </a>
+                                    </span>
+                                </span>
+                            </b>
+                            <span class="MsoCommentReference">
+                                <span lang="AR-SA" style="font-size:8.0pt;line-height:
+115%;font-family:Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+mso-bidi-theme-font:minor-bidi">
+                                    <span dir="LTR" style="mso-special-character:comment"></span>
+                                </span>
+                            </span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">.
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-indent:
+-21.25pt;mso-text-indent-alt:-7.1pt;line-height:115%;mso-list:l5 level1 lfo1">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>ب‌-
+                                        <span style="font:7.0pt Times New Roman"></span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:Calibri;
+color:black;mso-fareast-language:AR-SA">بدل سكن حسب ما ورد في المادة ( 56 ) من
+                                    لائحة تنظيم العمل .
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA;
+mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-21.3pt;mso-add-space:auto;text-indent:
+-14.2pt;line-height:115%;mso-list:l7 level1 lfo5">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">ج‌-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">تقديم
+                                    الرعاية الطبية والاجتماعية للموظف وأفراد اسرته حسب نظام الضمان الصحي التعاوني،
+                                    وحسب ما يقرره المركز .
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA;
+mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-14.2pt;line-height:115%;mso-list:l1 level1 lfo6">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">د‌-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">يخضع
+                                    الأجر والبدلات لنظام التأمينات الاجتماعية والأنظمة السارية في المملكة وأي أنظمة تصدر
+                                    لاحقاً .
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-14.2pt;line-height:115%;mso-list:l1 level1 lfo6">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">ه‌-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    يصرف للطرف الثاني تذاكر سفر سياحية مخفضة له ولعائلته بحد أقصى أربع تذاكر (ذهاب
+                                    وعودة) عند التصريح له بإجازته السنوية، وفي حالة انتهاء مدة العقد وعدم رغبة أحد
+                                    الطرفين في تجديده تصرف تذاكر ذهاب فقط.
+                                    ولا يستحق الطرف الثاني أي تذاكر في حالة عدم السفر للإجازة أو نقل كفالته عند نهاية
+                                    التعاقد .
+
+
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-14.2pt;line-height:115%;mso-list:l1 level1 lfo6">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">و-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    يشترط للرعاية الطبية وتذاكر السفر الخاصة بعائلة الطرف الثاني المنصوص عليها في هذه
+                                    المادة أن تكون عائلة الطرف الثاني مقيمة معه في المملكة إقامة نظامية، ولا تعمل لدى أي
+                                    جهة أخرى .
+
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-justify:kashida;text-kashida:10%;text-indent:-.25in;mso-line-height-alt:
+1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:AR-SA">
+                                    <span style="mso-list:Ignore">4-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">يستحق
+                                    الموظف إجازة سنوية بأجر مدتها (
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;mso-fareast-language:AR-SA">36 يوماً
+                                </span>
+                            </b>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">) يتمتع
+                                    بها وفق ما ورد في لوائح المركز وتعليماته كما يستحق الموظف الإجازات المرضية
+                                    والاضطرارية وإجازات المناسبات حسبما ورد في لائحة تنظيم العمل .
+
+                                </span>
+                            </b>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">5-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    يتحمل المركز ما يخص الطرف الثاني من رسوم الإقامة ورخصة العمل وتجديدهما، ورسوم الخروج
+                                    والعودة، أما ما يخص عائلة الطرف الثاني، فيتحملها الطرف الثاني، كما يتحمل أي رسوم أو
+                                    ضرائب تستحدث لاحقاً على الطرف الثاني أو عائلته أو دخله .
+                                </span>
+                            </b>
+                            <span dir="LTR"></span>
+                            <span dir="LTR"></span>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+                                <span dir="LTR"></span>
+                                <span dir="LTR"></span>
+                            </span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+
+                                </span>
+                            </b>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <a style="mso-comment-reference:AHA_10;mso-comment-date:20230717T1451">
+                                <!--[if !supportLists]-->
+                                <b style="mso-ansi-font-weight:normal">
+                                    <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                        <span style="mso-list:Ignore">6-
+                                            <span style="font:7.0pt Times New Roman">
+                                            </span>
+                                        </span>
+                                    </span>
+                                </b>
+                                <!--[endif]-->
+                                <span dir="RTL"></span>
+                                <b style="mso-ansi-font-weight:
+normal">
+                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                        جميع البنود الواردة بهذا العقد بشأن الالتزامات المالية تجاه حكومة المملكة
+                                        العربية السعودية تخضع لما يطرأ عليها من تعديلات وتحديث للأنظمة والإجراءات التي
+                                        تصدر من المنظم في المملكة العربية السعودية بشأن " انتقال الالتزام المالي" المكلف
+                                        به أحد أطراف العقد عن الطرف الآخر، ولا يجوز للطرف المكلف بالالتزام المالي حسب
+                                        النظام المعدل التمسك بما ورد بهذا العقد تجاه الطرف الآخر .
+                                    </span>
+                                </b>
+                            </a>
+                            <span style="mso-comment-continuation:10">
+                                <b style="mso-ansi-font-weight:normal">
+                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;mso-fareast-language:AR-SA"></span>
+                                </b>
+                            </span>
+                            <span style="mso-comment-continuation:10">
+                                <b style="mso-ansi-font-weight:normal">
+                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA"></span>
+                                </b>
+                            </span>
+                            <span style="mso-comment-continuation:10">
+                                <b style="mso-ansi-font-weight:normal">
+                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;mso-fareast-language:AR-SA"></span>
+                                </b>
+                            </span>
+                            <span style="mso-comment-continuation:10">
+                                <b style="mso-ansi-font-weight:normal">
+                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA">
+                                    </span>
+                                </b>
+                            </span>
+                            <span class="MsoCommentReference">
+                                <span lang="AR-SA" style="font-size:8.0pt;font-family:
+Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+minor-bidi">
+                                    <span dir="LTR" style="mso-special-character:comment"></span>
+                                </span>
+                            </span>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:Calibri;
+color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">7-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    يستحق الطرف الثاني إجازة سنوية بأجر كامل مدتها (36 يوماً) يتمتع بها وفق ما ورد في
+                                    لوائح المركز وتعليماته كما يستحق الطرف الثاني الإجازات المرضية والاضطرارية وإجازات
+                                    المناسبات حسب ما ورد في لائحة تنظيم العمل .
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpLast" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">8-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    يلتزم الطرف الثاني بالحصول على إذن من الطرف الأول بالتمتع بالإجازة قبل إصداره تأشيرة
+                                    خروج وعودة ومن دون إخلال بالتزاماته تجاه العقد .
+
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA;
+mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoNormal" dir="RTL" style="margin-left:-7.1pt;text-align:justify;
+mso-line-height-alt:1.1pt">
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA">
+
+                                </span>
+                            </b>
+                        </p>
+                        <p class="MsoListParagraphCxSpFirst" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">9-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    لا يلتزم الطرف الأول بدفع أي مبالغ مقابل حضور الطرف الثاني للعمل خلال أيام العطلات
+                                    أو خارج ساعات العمل الرسمية من دون تكليف كتابي .
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpFirst" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">10-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    يلتزم الطرف الثاني في حال عدم رغبته في تجديد عقده بإشعار الطرف الأول قبل نهاية العقد
+                                    بمدة
+                                    لا تقل عن (<span t-esc="o._number_to_text(o.days_before_renew)"/>) .
+
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpFirst" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">11-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    يلتزم الطرف الثاني بإتمام العقد حتى نهاية مدته، وفي حالة قيامه بفسخه بشكل منفرد،
+                                    فإنه يتعهد بتعويض الطرف الاول بناءً على الفقرة الثانية من المادة (77) من نظام العمل
+                                    شريطة ألا يقل التعويض عن أجر ثلاثة أشهر .
+
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpFirst" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">12-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    يلتزم الطرف الثاني بجميع الاشتراطات والمهام والواجبات والمحظورات الواردة في نظام
+                                    العمل أو في لائحة تنظيم العمل المعتمدة من وزارة الموارد البشرية والتنمية الاجتماعية،
+                                    ويقر باطلاعه على اللائحة وفهمه جميع محتواها والتزامه بها .
+
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+
+                        <p class="MsoListParagraphCxSpFirst" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">13-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    ساعات العمل بالمركز ثماني ساعات يومياً تبدأ من الساعة (السابعة والنصف) صباحاً إلى
+                                    الساعة
+                                    (الثالثة والنصف) عصراً لمدة خمسة أيام في الأسبوع وللمركز الحق في تغيير أوقات العمل
+                                    اليومية حسب ما يراه وعلى الطرف الثاني الالتزام بما يقرره المركز حيال ذلك .
+
+
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpFirst" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">14-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">يلتزم الطرف الثاني بالعمل على تحقيق أهداف المركز
+                                    ومهامه التي أنشئ لأجلها .
+
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+
+                        <p class="MsoListParagraphCxSpFirst" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">15-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    مع عدم الاخلال بحق المركز بمساءلته إدارياً أو أمام الجهات المختصة مع تطبيق العقوبة
+                                    اللازمة ويحظر عليه ارتكاب أي من المخالفات التالية:
+                                    <u>(على سبيل المثال لا الحصر)</u>:
+
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-indent:
+-21.25pt;mso-text-indent-alt:-7.1pt;mso-line-height-alt:1.1pt;mso-list:l8 level1 lfo2">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>أ‌-
+                                        <span style="font:7.0pt Times New Roman"></span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:Calibri;
+color:black;mso-fareast-language:AR-SA">إساءة استعمال السلطة أو استغلال النفوذ .
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-indent:
+-21.25pt;mso-text-indent-alt:-7.1pt;mso-line-height-alt:1.1pt;mso-list:l8 level1 lfo2">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>ب-
+                                        <span style="font:7.0pt Times New Roman"></span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:Calibri;
+color:black;mso-fareast-language:AR-SA">إفشاء المعلومات الخاصة بالعمل أو الزملاء، والتي يطلع عليها بحكم عمله بالمركز .
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-indent:
+-21.25pt;mso-text-indent-alt:-7.1pt;mso-line-height-alt:1.1pt;mso-list:l8 level1 lfo2">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>ج-
+                                        <span style="font:7.0pt Times New Roman"></span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:Calibri;
+color:black;mso-fareast-language:AR-SA">الاحتفاظ لنفسه بأي أوراق أو مستندات أو صور لها والخاصة بالمركز .
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-indent:
+-21.25pt;mso-text-indent-alt:-7.1pt;mso-line-height-alt:1.1pt;mso-list:l8 level1 lfo2">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>د‌-
+                                        <span style="font:7.0pt Times New Roman"></span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:Calibri;
+color:black;mso-fareast-language:AR-SA">جمع التبرعات من الموظفين أو بوساطتهم أو من الجهات التي يتعامل معها لأي غرض من دون تصريح كتابي من المركز .
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-indent:
+-21.25pt;mso-text-indent-alt:-7.1pt;mso-line-height-alt:1.1pt;mso-list:l8 level1 lfo2">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>ه-
+                                        <span style="font:7.0pt Times New Roman"></span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:Calibri;
+color:black;mso-fareast-language:AR-SA">قبول أي توجيهات من جهات خارجية في تنفيذ مهام عمله في المركز أو تقديم تقارير أو الإدلاء بأي معلومات لأي جهة خارجية أو التصريح لوسائل الإعلام أو غيرها بأمر يتعلق بأعمال المركز إلا بإذن خطي من صاحب الصلاحية أو من ينوب عنه .
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+Calibri;color:black;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+21.25pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-14.2pt;mso-line-height-alt:1.1pt;mso-list:l10 level1 lfo11">
+                            <!--[if !supportLists]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:Frutiger LT Arabic 45 Light;
+color:black;mso-fareast-language:AR-SA">
+                                    <span style="mso-list:Ignore">و
+                                        <span style="font:7.0pt Times New Roman"></span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <span dir="RTL"></span>
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    <span dir="RTL"></span>
+                                    <span dir="RTL"></span>
+                                    <span style="mso-spacerun:yes"></span>
+                                   تجاوز مديره المباشر إلا في الحالات الواردة في لائحة تنظيم العمل .
+                                </span>
+                            </b>
+                            <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA;
+mso-bidi-font-weight:bold">
+
+                            </span>
+                        </p>
+                        <p class="MsoListParagraphCxSpMiddle" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:8.0pt;margin-left:-7.1pt;mso-add-space:auto;text-align:
+justify;text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">16-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">في حالة
+                                    نشوء خلاف بين الطرفين -لا سمح الله -ولم يتوصل إلى حل ودي تكون الجهات القضائية
+                                    العمالية السعودية هي الجهات المختصة بالنظر في هذا الخلاف .
+
+                                </span>
+                            </b>
+                        </p>
+                        <p class="MsoListParagraphCxSpLast" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:0in;margin-left:-7.1pt;mso-add-space:auto;text-align:justify;
+text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">17-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    <span style="mso-spacerun:yes"></span>ما لم يرد في هذا العقد يرجع به إلى لائحة تنظيم
+                                    العمل والتعليمات والتوجيهات الداخلية المنظمة لعمل المركز، ويكون نظام العمل ولائحة
+                                    تنظيم العمل هما المرجع الرئيس في ذلك .
+
+                                </span>
+                            </b>
+                        </p>
+
+                        <p class="MsoListParagraphCxSpLast" dir="RTL" style="margin-top:0in;margin-right:
+10.9pt;margin-bottom:0in;margin-left:-7.1pt;mso-add-space:auto;text-align:justify;
+text-indent:-.25in;mso-line-height-alt:1.1pt;mso-list:l2 level1 lfo3">
+                            <!--[if !supportLists]-->
+                            <b style="mso-ansi-font-weight:normal">
+                                <span style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Frutiger LT Arabic 45 Light;color:black;mso-fareast-language:
+AR-SA">
+                                    <span style="mso-list:Ignore">18-
+                                        <span style="font:7.0pt Times New Roman">
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                            <!--[endif]-->
+                            <span dir="RTL"></span>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+mso-fareast-font-family:Calibri;color:black;mso-fareast-language:AR-SA">
+                                    <span style="mso-spacerun:yes"></span>
+                                    وقع الطرفان على هذا العقد برضاهما وقناعتهما واستلم كل طرف نسخة منه للعمل بموجبه .
+                                </span>
+                            </b>
+                        </p>
+                        <p class="MsoHeader" align="center" dir="RTL" style="margin-left:-7.1pt;text-align:
+center;mso-line-height-alt:.8pt">
+                            <b style="mso-ansi-font-weight:normal">
+                                <u>
+                                    <span lang="AR-SA" style="font-size:12.0pt;font-family:Frutiger LT Arabic 45 Light;
+mso-effects-shadow-color:black;mso-effects-shadow-alpha:40.0%;
+mso-effects-shadow-dpiradius:4.0pt;mso-effects-shadow-dpidistance:3.0pt;
+mso-effects-shadow-angledirection:2700000;mso-effects-shadow-align:topleft;
+mso-effects-shadow-pctsx:100.0%;mso-effects-shadow-pctsy:100.0%;mso-effects-shadow-anglekx:
+0;mso-effects-shadow-angleky:0">الموقعون
+                                    </span>
+                                </u>
+                            </b>
+                            <b style="mso-ansi-font-weight:
+normal">
+                                <u>
+                                    <span lang="AR-SA" style="font-size:12.0pt;mso-ansi-font-size:8.0pt;
+font-family:Frutiger LT Arabic 45 Light;mso-effects-shadow-color:
+black;mso-effects-shadow-alpha:40.0%;mso-effects-shadow-dpiradius:4.0pt;
+mso-effects-shadow-dpidistance:3.0pt;mso-effects-shadow-angledirection:2700000;
+mso-effects-shadow-align:topleft;mso-effects-shadow-pctsx:100.0%;mso-effects-shadow-pctsy:
+100.0%;mso-effects-shadow-anglekx:0;mso-effects-shadow-angleky:0">
+
+                                    </span>
+                                </u>
+                            </b>
+                        </p>
+                        <div align="center" dir="rtl">
+                            <table class="MsoNormalTable" dir="rtl" border="1" cellspacing="3" cellpadding="0" style="mso-cellspacing:2.0pt;border:outset 3.0pt;mso-yfti-tbllook:160;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-table-dir:bidi;mso-border-insideh:
+ .75pt outset windowtext;mso-border-insidev:.75pt outset windowtext">
+                                <tbody>
+                                    <tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:19.15pt">
+                                        <td width="314" valign="top" style="width:235.45pt;border:inset 1.0pt;border-top:
+  inset 3.0pt;mso-border-alt:inset windowtext .75pt;mso-border-top-alt:inset windowtext 3.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:19.15pt">
+                                            <h1 align="center" dir="RTL" style="margin-top:0in;margin-right:.25in;margin-bottom:
+  0in;margin-left:-7.1pt;margin-bottom:.0001pt;text-align:center;text-indent:
+  0in;page-break-after:auto;mso-list:none;tab-stops:.5in">
+                                                <b style="mso-ansi-font-weight:
+  normal">
+                                                    <span lang="AR-SA"
+                                                          style="font-size:11.0pt;font-family:Frutiger LT Arabic 45 Light">
+                                                        الطرف
+                                                        الثاني
+                                                    </span>
+                                                </b>
+                                                <span dir="LTR"
+                                                      style="font-size:11.0pt;font-family:Frutiger LT Arabic 45 Light">
+
+                                                </span>
+                                            </h1>
+                                        </td>
+                                        <td width="299" valign="top" style="width:223.95pt;border:inset 1.0pt;border-top:
+  inset 3.0pt;mso-border-alt:inset windowtext .75pt;mso-border-top-alt:inset windowtext 3.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:19.15pt">
+                                            <p class="MsoNormal" align="center" dir="RTL" style="margin-left:-7.1pt;text-align:
+  center">
+                                                <b style="mso-ansi-font-weight:normal">
+                                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light">
+                                                        الطرف الأول
+                                                    </span>
+                                                </b>
+                                                <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-bidi-font-weight:
+  bold">
+
+                                                </span>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr style="mso-yfti-irow:1">
+                                        <td width="314" style="width:235.45pt;padding:0in 5.4pt 0in 5.4pt">
+                                            <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:0in;margin-bottom:
+  0in;margin-left:-7.1pt;text-align:justify">
+                                                <b style="mso-ansi-font-weight:
+  normal">
+                                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light;
+  mso-fareast-font-family:Calibri;mso-fareast-language:AR-SA">الاسـم/
+                                                        <span style="">
+                                                            <span t-esc="o.employee_id.name"/>
+                                                        </span>
+                                                    </span>
+                                                </b>
+                                                <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-fareast-font-family:
+  Calibri;mso-fareast-language:AR-SA;mso-bidi-font-weight:bold">
+
+                                                </span>
+                                            </p>
+                                        </td>
+                                        <td width="299" valign="top" style="width:223.95pt;padding:0in 5.4pt 0in 5.4pt">
+                                            <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:0in;margin-bottom:
+  0in;margin-left:-7.1pt;text-align:justify">
+                                                <b style="mso-ansi-font-weight:
+  normal">
+                                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light">
+                                                        الاسـم/
+                                                        <span t-esc="o.hr_responsible_id.name"/>
+
+                                                    </span>
+                                                </b>
+                                            </p>
+                                            <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:0in;margin-bottom:
+  0in;margin-left:-7.1pt;text-align:justify">
+                                                <b style="mso-ansi-font-weight:
+  normal">
+                                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light">
+                                                        الوظيفة/
+                                                        <span t-esc="o.hr_responsible_id.job_id.name"/>
+                                                    </span>
+                                                </b>
+                                                <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;
+  mso-bidi-font-weight:bold">
+
+                                                </span>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr style="mso-yfti-irow:2;height:17.6pt">
+                                        <td width="314"
+                                            style="width:235.45pt;padding:0in 5.4pt 0in 5.4pt;height:17.6pt">
+                                            <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:0in;margin-bottom:
+  0in;margin-left:-7.1pt">
+                                                <b style="mso-ansi-font-weight:normal">
+                                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light">
+                                                        التوقيع
+                                                        <span style="mso-spacerun:yes"></span>/
+                                                    </span>
+                                                </b>
+                                                <span dir="LTR"
+                                                      style="font-family:Frutiger LT Arabic 45 Light;mso-bidi-font-weight:bold">
+
+                                                </span>
+                                            </p>
+                                        </td>
+                                        <td width="299"
+                                            style="width:223.95pt;padding:0in 5.4pt 0in 5.4pt;height:17.6pt">
+                                            <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:0in;margin-bottom:
+  0in;margin-left:-7.1pt">
+                                                <b style="mso-ansi-font-weight:normal">
+                                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light">
+                                                        التوقيع /
+                                                    </span>
+                                                </b>
+                                                <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-bidi-font-weight:
+  bold">
+
+                                                </span>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr style="mso-yfti-irow:3">
+                                        <td width="314" valign="top" style="width:235.45pt;padding:0in 5.4pt 0in 5.4pt">
+                                            <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:0in;margin-bottom:
+  0in;margin-left:-7.1pt;text-align:justify">
+                                                <b style="mso-ansi-font-weight:
+  normal">
+                                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light">
+                                                        التاريـخ:
+                                                        <span style="mso-spacerun:yes"></span>
+                                                        <span style="mso-spacerun:yes"></span>
+                                                        <span t-esc="o.employee_id.get_islamic_date(o.date_start)"/>
+                                                        <!--											<span style="mso-spacerun:yes">-->
+                                                        <!--  </span>/-->
+                                                        <!--											<span style="mso-spacerun:yes"> </span>14هـ-->
+                                                    </span>
+                                                </b>
+                                                <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-bidi-font-weight:
+  bold">
+
+                                                </span>
+                                            </p>
+                                        </td>
+                                        <td width="299" valign="top" style="width:223.95pt;padding:0in 5.4pt 0in 5.4pt">
+                                            <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:0in;margin-bottom:
+  0in;margin-left:-7.1pt;text-align:justify">
+                                                <b style="mso-ansi-font-weight:
+  normal">
+                                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light">
+                                                        التاريـخ:
+                                                        <span style="mso-spacerun:yes"></span>
+                                                        <span style="mso-spacerun:yes"></span>
+                                                        <span t-esc="o.employee_id.get_islamic_date(o.date_start)"/>
+                                                        <!--											<span style="mso-spacerun:yes">-->
+                                                        <!--  </span>/-->
+                                                        <!--											<span style="mso-spacerun:yes"> </span>14هـ-->
+                                                    </span>
+                                                </b>
+                                                <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-bidi-font-weight:
+  bold">
+
+                                                </span>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr style="mso-yfti-irow:4;mso-yfti-lastrow:yes">
+                                        <td width="314" valign="top" style="width:235.45pt;border:inset 1.0pt;border-bottom:
+  inset 3.0pt;mso-border-alt:inset windowtext .75pt;mso-border-bottom-alt:inset windowtext 3.0pt;
+  padding:0in 5.4pt 0in 5.4pt">
+                                            <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:0in;margin-bottom:
+  0in;margin-left:-7.1pt;text-align:justify">
+                                                <b style="mso-ansi-font-weight:
+  normal">
+                                                    <span lang="AR-SA" style="font-family:Frutiger LT Arabic 45 Light">
+                                                        الموافق:
+                                                        <span style="mso-spacerun:yes"></span>
+                                                        <span t-esc="o.date_start"/>
+                                                        <!--											<span style="mso-spacerun:yes"> </span>/-->
+                                                        <!--											<span style="mso-spacerun:yes"> </span>20م-->
+                                                        <!--											<span style="mso-spacerun:yes">-->
+                                                        <!--  </span>-->
+                                                    </span>
+                                                </b>
+                                                <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;
+  mso-bidi-font-weight:bold">
+
+                                                </span>
+                                            </p>
+                                        </td>
+                                        <td width="299" valign="top" style="width:223.95pt;border:inset 1.0pt;border-bottom:
+  inset 3.0pt;mso-border-alt:inset windowtext .75pt;mso-border-bottom-alt:inset windowtext 3.0pt;
+  padding:0in 5.4pt 0in 5.4pt">
+                                            <p class="MsoNormal" dir="RTL" style="margin-top:0in;margin-right:0in;margin-bottom:
+  0in;margin-left:-7.1pt;text-align:justify">
+                                                <a style="mso-comment-reference:
+  AHA_11;mso-comment-date:20230717T1422">
+                                                    <b style="mso-ansi-font-weight:normal">
+                                                        <span lang="AR-SA"
+                                                              style="font-family:Frutiger LT Arabic 45 Light">الموافق:
+                                                            <span style="mso-spacerun:yes"></span>
+                                                            <span t-esc="o.date_start"/>
+                                                            <!--												<span style="mso-spacerun:yes"> </span>/-->
+                                                            <!--												<span style="mso-spacerun:yes"> </span>20م-->
+                                                        </span>
+                                                    </b>
+                                                </a>
+                                                <span class="MsoCommentReference">
+                                                    <span lang="AR-SA" style="font-size:8.0pt;line-height:
+  107%;font-family:Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+  mso-bidi-theme-font:minor-bidi">
+                                                        <span dir="LTR" style="mso-special-character:comment"></span>
+                                                    </span>
+                                                </span>
+                                                <span dir="LTR" style="font-family:Frutiger LT Arabic 45 Light;mso-bidi-font-weight:
+  bold">
+
+                                                </span>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="1" align="center" dir="RTL" style="margin-top:0in;margin-right:0in;
+margin-bottom:0in;margin-left:-7.1pt;margin-bottom:.0001pt;text-align:center;
+line-height:50%">
+                            <b style="mso-ansi-font-weight:normal">
+                                <u>
+                                    <span lang="AR-SA" style="font-size:8.0pt;mso-ansi-font-size:5.0pt;line-height:50%;font-family:
+AL-Mohanad Bold;mso-effects-shadow-color:black;mso-effects-shadow-alpha:
+40.0%;mso-effects-shadow-dpiradius:4.0pt;mso-effects-shadow-dpidistance:3.0pt;
+mso-effects-shadow-angledirection:2700000;mso-effects-shadow-align:topleft;
+mso-effects-shadow-pctsx:100.0%;mso-effects-shadow-pctsy:100.0%;mso-effects-shadow-anglekx:
+0;mso-effects-shadow-angleky:0">
+
+                                        <span style="text-decoration:none"></span>
+
+                                    </span>
+                                </u>
+                            </b>
+                        </p>
+                        <p class="1" align="center" dir="RTL" style="margin-top:12.0pt;margin-right:0in;
+margin-bottom:0in;margin-left:-7.1pt;margin-bottom:.0001pt;text-align:center;
+line-height:50%">
+                            <a style="mso-comment-reference:AHA_12;mso-comment-date:20230717T1450">
+                                <b style="mso-ansi-font-weight:normal">
+                                    <u>
+                                        <span lang="AR-SA" style="font-size:16.0pt;
+mso-ansi-font-size:14.0pt;line-height:50%;font-family:AL-Mohanad Bold;
+mso-effects-shadow-color:black;mso-effects-shadow-alpha:40.0%;
+mso-effects-shadow-dpiradius:4.0pt;mso-effects-shadow-dpidistance:3.0pt;
+mso-effects-shadow-angledirection:2700000;mso-effects-shadow-align:topleft;
+mso-effects-shadow-pctsx:100.0%;mso-effects-shadow-pctsy:100.0%;mso-effects-shadow-anglekx:
+0;mso-effects-shadow-angleky:0">
+                                    <center>
+                                        <img t-if="o.company_id.print_seal"
+                                             t-att-src="image_data_uri(o.company_id.print_seal)" alt="Logo"
+                                             style="display:block;margin-top:3px; height:200px; width: 250px;"/>
+
+                                    </center>
+                                        </span>
+                                    </u>
+                                </b>
+                            </a>
+                            <span class="MsoCommentReference">
+                                <span lang="AR-SA" style="font-size:8.0pt;line-height:
+50%;font-family:Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+minor-bidi;mso-bidi-font-weight:normal">
+                                    <span dir="LTR" style="mso-special-character:comment"></span>
+                                </span>
+                            </span>
+                            <b style="mso-ansi-font-weight:normal">
+                                <u>
+                                    <span lang="AR-SA" style="font-size:16.0pt;
+mso-ansi-font-size:14.0pt;line-height:50%;font-family:Frutiger LT Arabic 55 Roman;
+mso-effects-shadow-color:black;mso-effects-shadow-alpha:40.0%;
+mso-effects-shadow-dpiradius:4.0pt;mso-effects-shadow-dpidistance:3.0pt;
+mso-effects-shadow-angledirection:2700000;mso-effects-shadow-align:topleft;
+mso-effects-shadow-pctsx:100.0%;mso-effects-shadow-pctsy:100.0%;mso-effects-shadow-anglekx:
+0;mso-effects-shadow-angleky:0">
+
+                                    </span>
+                                </u>
+                            </b>
+                        </p>
+                        <div style="mso-element:para-border-div;border:none;border-bottom:solid windowtext 1.0pt;
+mso-border-bottom-alt:solid windowtext .5pt;padding:0in 0in 1.0pt 0in">
+                            <p class="1" dir="RTL" style="margin-right:0in;line-height:50%;border:none;
+mso-border-bottom-alt:solid windowtext .5pt;padding:0in;mso-padding-alt:0in 0in 1.0pt 0in">
+                                <u>
+                                    <span dir="LTR" style="font-size:1.0pt;line-height:50%;mso-bidi-font-family:AL-Mohanad Bold;
+color:green;mso-effects-shadow-color:black;mso-effects-shadow-alpha:40.0%;
+mso-effects-shadow-dpiradius:4.0pt;mso-effects-shadow-dpidistance:3.0pt;
+mso-effects-shadow-angledirection:2700000;mso-effects-shadow-align:topleft;
+mso-effects-shadow-pctsx:100.0%;mso-effects-shadow-pctsy:100.0%;mso-effects-shadow-anglekx:
+0;mso-effects-shadow-angleky:0">
+
+                                        <span style="text-decoration:none"></span>
+
+                                    </span>
+                                </u>
+                            </p>
+                        </div>
+                        <p class="1" align="center" dir="RTL" style="margin-right:0in;text-align:center;
+line-height:50%">
+                            <b style="mso-ansi-font-weight:normal">
+                                <u>
+                                    <span lang="AR-SA" style="font-size:8.0pt;mso-ansi-font-size:5.0pt;line-height:50%;font-family:
+AL-Mohanad Bold;color:green;mso-effects-shadow-color:black;mso-effects-shadow-alpha:
+40.0%;mso-effects-shadow-dpiradius:4.0pt;mso-effects-shadow-dpidistance:3.0pt;
+mso-effects-shadow-angledirection:2700000;mso-effects-shadow-align:topleft;
+mso-effects-shadow-pctsx:100.0%;mso-effects-shadow-pctsy:100.0%;mso-effects-shadow-anglekx:
+0;mso-effects-shadow-angleky:0">
+
+                                        <span style="text-decoration:none"></span>
+
+                                    </span>
+                                </u>
+                            </b>
+                        </p>
+<!--                        <p class="1" align="center" dir="RTL" style="margin-top:12.0pt;margin-right:0in;-->
+<!--margin-bottom:0in;margin-left:0in;margin-bottom:.0001pt;text-align:center;-->
+<!--line-height:50%">-->
+<!--                            <b style="mso-ansi-font-weight:normal">-->
+<!--                                <u>-->
+<!--                                    <span lang="AR-SA" style="font-size:16.0pt;mso-ansi-font-size:14.0pt;line-height:50%;font-family:-->
+<!--AL-Mohanad Bold;mso-effects-shadow-color:black;mso-effects-shadow-alpha:-->
+<!--40.0%;mso-effects-shadow-dpiradius:4.0pt;mso-effects-shadow-dpidistance:3.0pt;-->
+<!--mso-effects-shadow-angledirection:2700000;mso-effects-shadow-align:topleft;-->
+<!--mso-effects-shadow-pctsx:100.0%;mso-effects-shadow-pctsy:100.0%;mso-effects-shadow-anglekx:-->
+<!--0;mso-effects-shadow-angleky:0">المباشرة-->
+<!--                                    </span>-->
+<!--                                </u>-->
+<!--                            </b>-->
+<!--                            <b style="mso-ansi-font-weight:-->
+<!--normal">-->
+<!--                                <u>-->
+<!--                                    <span lang="AR-SA" style="font-size:16.0pt;mso-ansi-font-size:14.0pt;-->
+<!--line-height:50%;font-family:Frutiger LT Arabic 45 Light;color:green;-->
+<!--mso-effects-shadow-color:black;mso-effects-shadow-alpha:40.0%;mso-effects-shadow-dpiradius:-->
+<!--4.0pt;mso-effects-shadow-dpidistance:3.0pt;mso-effects-shadow-angledirection:-->
+<!--2700000;mso-effects-shadow-align:topleft;mso-effects-shadow-pctsx:100.0%;-->
+<!--mso-effects-shadow-pctsy:100.0%;mso-effects-shadow-anglekx:0;mso-effects-shadow-angleky:-->
+<!--0">-->
+
+<!--                                    </span>-->
+<!--                                </u>-->
+<!--                            </b>-->
+<!--                        </p>-->
+<!--                        <p class="1" dir="RTL" style="margin-right:0pt;line-height:70%">-->
+<!--                            <b style="mso-ansi-font-weight:normal">-->
+<!--                                <span lang="AR-SA" style="font-size:12.0pt;-->
+<!--line-height:70%;font-family:Frutiger LT Arabic 45 Light;color:black;-->
+<!--mso-fareast-language:AR-SA">-->
+<!--                                    <span style="mso-spacerun:yes">-->
+<!--                                    </span>سعادة مدير إدارة الموارد البشرية-->
+<!--                                    <span style="mso-spacerun:yes">-->
+<!--                                    </span>المحترم-->
+
+<!--                                </span>-->
+<!--                            </b>-->
+<!--                        </p>-->
+<!--                        <p class="1" dir="RTL" style="line-height:70%">-->
+<!--                            <b style="mso-ansi-font-weight:normal">-->
+<!--                                <span lang="AR-SA" style="font-size:12.0pt;line-height:70%;font-family:Frutiger LT Arabic 45 Light;-->
+<!--color:black;mso-fareast-language:AR-SA">الموضح اسمه بعالية باشر العمل-->
+<!--                                    <a style="mso-comment-reference:AHA_13;mso-comment-date:20230717T1402">بتاريخ-->
+<!--                                        <span style="mso-spacerun:yes"></span>-->
+<!--                                        <span style="mso-spacerun:yes"></span>-->
+<!--                                        <span style="mso-spacerun:yes"></span>-->
+<!--                                        <span t-esc="o.date_start"/>-->
+<!--                                        &lt;!&ndash;							<span style="mso-spacerun:yes"> </span>&ndash;&gt;-->
+<!--                                        &lt;!&ndash;							<span style="mso-spacerun:yes"></span>/&ndash;&gt;-->
+<!--                                        &lt;!&ndash;							<span style="mso-spacerun:yes"> </span>20م&ndash;&gt;-->
+<!--                                    </a>-->
+<!--                                </span>-->
+<!--                            </b>-->
+<!--                            <span class="MsoCommentReference">-->
+<!--                                <span lang="AR-SA" style="font-size:8.0pt;line-height:-->
+<!--70%;font-family:Arial,sans-serif;mso-ascii-font-family:Calibri;mso-ascii-theme-font:-->
+<!--minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;-->
+<!--mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:-->
+<!--minor-bidi;mso-bidi-font-weight:normal">-->
+<!--                                    &lt;!&ndash;[if !supportAnnotations]&ndash;&gt;-->
+<!--                                    &lt;!&ndash;						<a class="msocomanchor" id="_anchor_13" href="file:///C:/Users/HUAWEI/AppData/Local/Microsoft/Windows/INetCache/IE/7PP7DX0T/%D9%86%D9%85%D9%88%D8%B0%D8%AC%20%D8%B9%D9%82%D8%AF%20%D8%B9%D9%85%D9%84%20%D9%85%D9%88%D8%B8%D9%81%20%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%5b1%5d.docx#_msocom_13" language="JavaScript" name="_msoanchor_13">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;							<span dir="RTL">[</span>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;						</a>&ndash;&gt;-->
+<!--                                    <span dir="LTR" style="mso-special-character:comment"></span>-->
+<!--                                </span>-->
+<!--                            </span>-->
+<!--                            <b style="mso-ansi-font-weight:normal">-->
+<!--                                <span lang="AR-SA" style="font-size:12.0pt;-->
+<!--line-height:70%;font-family:Frutiger LT Arabic 45 Light;color:black;-->
+<!--mso-fareast-language:AR-SA">.-->
+
+<!--                                </span>-->
+<!--                            </b>-->
+<!--                        </p>-->
+<!--                        <p class="1" dir="RTL" style="margin-right:0in;text-indent:0.0pt;line-height:-->
+<!--70%;tab-stops:7.0pt">-->
+<!--                            <b style="mso-ansi-font-weight:normal">-->
+<!--                                <span lang="AR-SA" style="font-size:12.0pt;line-height:70%;font-family:Frutiger LT Arabic 45 Light;-->
+<!--color:black;mso-fareast-language:AR-SA">-->
+<!--                                    <span style="mso-spacerun:yes"></span>المسؤول:-->
+
+<!--                                </span>-->
+<!--                            </b>-->
+<!--                        </p>-->
+<!--                        <p class="1" dir="RTL" style="margin-right:0in;text-indent:31.9pt;line-height:70%">-->
+<!--                            <b style="mso-ansi-font-weight:normal">-->
+<!--                                <span lang="AR-SA" style="font-size:12.0pt;-->
+<!--line-height:70%;font-family:Frutiger LT Arabic 45 Light;color:black;-->
+<!--mso-fareast-language:AR-SA">-->
+<!--                                    <span style="mso-spacerun:yes">-->
+<!--                                    </span>توقيعه:-->
+
+<!--                                </span>-->
+<!--                            </b>-->
+<!--                        </p>-->
+<!--                        <p class="1" dir="RTL" style="margin-right:0in;text-indent:31.9pt;line-height:70%">-->
+<!--                            <b style="mso-ansi-font-weight:normal">-->
+<!--                                <span lang="AR-SA" style="font-size:9.0pt;-->
+<!--line-height:70%;font-family:Frutiger LT Arabic 45 Light;color:black;-->
+<!--mso-fareast-language:AR-SA">-->
+
+<!--                                </span>-->
+<!--                            </b>-->
+<!--                        </p>-->
+                        <div style="mso-element:comment-list">
+                            <div style="mso-element:comment">
+                                <div id="_com_13" class="msocomtxt" language="JavaScript">
+                                    <!--[if !supportAnnotations]-->
+                                </div>
+                                <!--[endif]-->
+                            </div>
+                        </div>
+
+
+                        <!--                        <div class="page" style="font-family: 'Noto Kufi Arabic', sans-serif;font-size:16px;">-->
+                        <!--                            <t t-set="contract_name" t-value="'عقد عمل موظف سعودي'"/>-->
+                        <!--                            <center>-->
+                        <!--                                <h2>-->
+                        <!--                                    <span t-esc="contract_name"/>-->
+                        <!--                                </h2>-->
+                        <!--                            </center>-->
+                        <!--                            <br/>-->
+                        <!--                            <br/>-->
+                        <!--                            <p>-->
+
+
+                        <!--                                بعون الله تعالى، وفي يوم-->
+                        <!--                                ....... الموافق: ..../....../....20م.-->
+                        <!--                                تم الاتفاق والتعاقد بين كل من:-->
+
+                        <!--                                أولاً: مركز الملك عبد العزيز للحوار الوطني ويمثله الأمين العام وعنوانه الدائم الرياض –-->
+                        <!--                                الدائري الشمالي-->
+                        <!--                                ص . ب ( 89866 ) الرياض ( 11692 ) ويشار إليه بالطرف الأول أو المركز.-->
+
+                        <!--                            </p>-->
+
+                        <!--                            <div class="row" dir="rtl">-->
+                        <!--                                <div class="col-6">-->
+                        <!--                                    &lt;!&ndash;                                <center>&ndash;&gt;-->
+                        <!--                                    &lt;!&ndash;                                    <img t-if="res_company.admin_signature"&ndash;&gt;-->
+                        <!--                                    &lt;!&ndash;                                         t-att-src="image_data_uri(res_company.print_signature)" alt="Logo"&ndash;&gt;-->
+                        <!--                                    &lt;!&ndash;                                         style="display:block;margin-top:3px; height:200px; width: 400px;"/>&ndash;&gt;-->
+                        <!--                                    &lt;!&ndash;                                </center>&ndash;&gt;-->
+
+
+                        <!--                                </div>-->
+                        <!--                                <div class="col-6">-->
+                        <!--                                    <center>-->
+                        <!--                                        <img t-if="res_company.print_seal"-->
+                        <!--                                             t-att-src="image_data_uri(res_company.print_seal)" alt="Logo"-->
+                        <!--                                             style="display:block;margin-top:3px; height:200px; width: 250px;"/>-->
+
+                        <!--                                    </center>-->
+                        <!--                                </div>-->
+
+                        <!--                            </div>-->
+
+                        <!--                        </div>-->
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>
